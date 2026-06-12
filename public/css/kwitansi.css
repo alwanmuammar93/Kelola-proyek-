@@ -1,0 +1,1091 @@
+/* ============================================
+   KWITANSI MAIN LAYOUT
+   ============================================ */
+
+.kwitansi-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 66px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .kwitansi-main {
+    background-color: #0f172a;
+}
+
+/* ============================================
+   CONTAINER & TITLE
+   ============================================ */
+
+.kwitansi-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+.kwitansi-header-title {
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a4d;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Title */
+body.dark-theme .dashboard-title {
+    color: #60a5fa;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* Project Info */
+.project-info {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .project-info {
+    color: #94a3b8 !important;
+}
+
+body.dark-theme .project-info strong {
+    color: #cbd5e0;
+}
+
+/* ============================================
+   CONTROLS (SEARCH, SORT, TAMBAH) - GRID LAYOUT
+   ============================================ */
+
+.kwitansi-controls {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* SEARCH WRAPPER */
+.search-wrapper {
+    width: 400px;
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 90px 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #ffd93d;
+    font-size: 15px;
+    background: #fff;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #1a1a4d;
+    box-shadow: 0 0 0 3px rgba(26, 26, 77, 0.1);
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+/* Dark Theme Search Input */
+body.dark-theme .search-input {
+    background-color: #1e293b;
+    border-color: #64748b;
+    color: #e2e8f0;
+}
+
+body.dark-theme .search-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .search-input::placeholder {
+    color: #64748b;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffd93d;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: #1a1a4d;
+    color: white;
+}
+
+/* Dark Theme Search Button */
+body.dark-theme .search-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+body.dark-theme .search-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+/* CLEAR SEARCH BUTTON */
+.btn-clear-search {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+    display: none;
+}
+
+.btn-clear-search:hover {
+    color: #dc3545;
+}
+
+body.dark-theme .btn-clear-search {
+    color: #94a3b8;
+}
+
+body.dark-theme .btn-clear-search:hover {
+    color: #ef4444;
+}
+
+.search-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .search-hint {
+    color: #94a3b8;
+}
+
+/* ============================================
+   SORT DROPDOWN
+   ============================================ */
+
+.sort-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    min-width: 120px;
+}
+
+.sort-btn {
+    background: #dc3545;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+}
+
+.sort-btn:hover {
+    background: #bb2d3b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Dark Theme Sort Button */
+body.dark-theme .sort-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+body.dark-theme .sort-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
+
+.sort-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    min-width: 200px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Dropdown */
+body.dark-theme .sort-dropdown {
+    background: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sort-dropdown.show {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sort-item {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sort-item:last-child {
+    border-bottom: none;
+}
+
+.sort-item:hover {
+    background: #f8f9fa;
+    padding-left: 20px;
+}
+
+.sort-item.active {
+    background: #ffd93d;
+    font-weight: bold;
+    color: #1a1a4d;
+}
+
+/* Dark Theme Sort Items */
+body.dark-theme .sort-item {
+    color: #e2e8f0;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .sort-item:hover {
+    background: #334155;
+}
+
+body.dark-theme .sort-item.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+}
+
+/* ============================================
+   BUTTON TAMBAH
+   ============================================ */
+
+.btn-tambah {
+    background: #ffd93d;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1a1a4d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    min-width: 200px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(255, 217, 61, 0.2);
+}
+
+.btn-tambah:hover {
+    background: #1a1a4d;
+    color: #ffd93d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(26, 26, 77, 0.3);
+    text-decoration: none;
+}
+
+/* Dark Theme Tambah Button */
+body.dark-theme .btn-tambah {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+body.dark-theme .btn-tambah:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+/* ============================================
+   TABLE STYLING - COMPLETE FIX
+   ============================================ */
+
+.kwitansi-table-wrapper {
+    background: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Wrapper */
+body.dark-theme .kwitansi-table-wrapper {
+    background: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-kwitansi {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-kwitansi thead {
+    background: #1a1a4d;
+    color: white;
+}
+
+/* Dark Theme Table Header */
+body.dark-theme .table-kwitansi thead {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+/* TABLE HEADER - WARNA PUTIH */
+.table-kwitansi th {
+    padding: 15px 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff !important; /* PUTIH */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Header Text */
+body.dark-theme .table-kwitansi th {
+    color: #ffffff !important; /* TETAP PUTIH */
+}
+
+/* TABLE BODY CELLS */
+.table-kwitansi td {
+    padding: 15px 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Cells */
+body.dark-theme .table-kwitansi td {
+    color: #e2e8f0;
+}
+
+/* Column widths untuk 5 kolom: NO, SUMBER DATA, TANGGAL, STATUS, AKSI */
+.table-kwitansi th:nth-child(1),
+.table-kwitansi td:nth-child(1) {
+    width: 5%;
+    text-align: center;
+}
+
+.table-kwitansi th:nth-child(2),
+.table-kwitansi td:nth-child(2) {
+    width: 30%;
+    text-align: left;
+}
+
+.table-kwitansi th:nth-child(3),
+.table-kwitansi td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.table-kwitansi th:nth-child(4),
+.table-kwitansi td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+
+.table-kwitansi th:nth-child(5),
+.table-kwitansi td:nth-child(5) {
+    width: 35%;
+    text-align: center;
+}
+
+.table-kwitansi tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+/* Dark Theme Table Row */
+body.dark-theme .table-kwitansi tbody tr {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-kwitansi tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Dark Theme Table Row Hover */
+body.dark-theme .table-kwitansi tbody tr:hover {
+    background-color: #334155;
+}
+
+/* ============================================
+   SUMBER DATA
+   ============================================ */
+
+.sumber-label {
+    font-weight: bold;
+    color: #1a1a4d;
+    display: block;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Sumber Label */
+body.dark-theme .sumber-label {
+    color: #60a5fa;
+}
+
+.sumber-detail {
+    font-size: 0.85rem;
+    color: #6c757d;
+    display: block;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Sumber Detail */
+body.dark-theme .sumber-detail {
+    color: #94a3b8;
+}
+
+/* SEARCH HIGHLIGHT */
+.search-highlight {
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+body.dark-theme .search-highlight {
+    background-color: #854d0e;
+    color: #fef3c7;
+}
+
+/* ============================================
+   BADGE STATUS
+   ============================================ */
+
+.badge-status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.badge-lunas {
+    background: #198754;
+    color: white;
+}
+
+.badge-dp-tinggi {
+    background: #0d6efd;
+    color: white;
+}
+
+.badge-dp-sedang {
+    background: #ffc107;
+    color: #1a1a4d;
+}
+
+.badge-dp-rendah {
+    background: #fd7e14;
+    color: white;
+}
+
+.badge-dp {
+    background: #6c757d;
+    color: white;
+}
+
+/* Dark Theme Badges - Keep same colors as they're already good for dark mode */
+
+/* ============================================
+   ACTION BUTTONS - HORIZONTAL (BERJEJER)
+   ============================================ */
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.action-buttons form {
+    display: inline;
+    margin: 0;
+}
+
+.btn-unduh,
+.btn-edit,
+.btn-hapus {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-unduh {
+    background: #1a1a4d;
+    color: white;
+    box-shadow: 0 2px 4px rgba(26, 26, 77, 0.2);
+}
+
+.btn-unduh:hover {
+    background: #0d0d26;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(26, 26, 77, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+/* Dark Theme Unduh Button */
+body.dark-theme .btn-unduh {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+}
+
+body.dark-theme .btn-unduh:hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.5);
+}
+
+.btn-edit {
+    background: #ffd93d;
+    color: #1a1a4d;
+    box-shadow: 0 2px 4px rgba(255, 217, 61, 0.2);
+}
+
+.btn-edit:hover {
+    background: #ffc107;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(255, 217, 61, 0.3);
+    color: #1a1a4d;
+    text-decoration: none;
+}
+
+/* Dark Theme Edit Button */
+body.dark-theme .btn-edit {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-theme .btn-edit:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.5);
+}
+
+.btn-hapus {
+    background: #dc3545;
+    color: white;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+.btn-hapus:hover {
+    background: #bb2d3b;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Dark Theme Hapus Button */
+body.dark-theme .btn-hapus {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+
+body.dark-theme .btn-hapus:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.5);
+}
+
+/* ============================================
+   EMPTY STATE & NO RESULTS
+   ============================================ */
+
+.empty-state {
+    padding: 60px 20px;
+    color: #6c757d;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .empty-state {
+    color: #64748b;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .empty-state-icon {
+    color: #475569;
+}
+
+.empty-state-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.btn-tambah-first {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    margin-top: 15px;
+}
+
+.btn-tambah-first:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+body.dark-theme .btn-tambah-first {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+body.dark-theme .btn-tambah-first:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .no-results {
+    color: #64748b;
+}
+
+.no-results i {
+    font-size: 4rem;
+    color: #dee2e6;
+    margin-bottom: 20px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .no-results i {
+    color: #475569;
+}
+
+.no-results p {
+    margin: 10px 0;
+}
+
+.no-results strong {
+    color: #495057;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .no-results strong {
+    color: #cbd5e0;
+}
+
+.no-results .text-muted {
+    font-size: 0.9rem;
+}
+
+body.dark-theme .no-results .text-muted {
+    color: #94a3b8 !important;
+}
+
+.no-results a {
+    color: #1a1a4d;
+    text-decoration: underline;
+}
+
+.no-results a:hover {
+    color: #ffd93d;
+}
+
+body.dark-theme .no-results a {
+    color: #60a5fa;
+}
+
+body.dark-theme .no-results a:hover {
+    color: #3b82f6;
+}
+
+/* ============================================
+   LOADING OVERLAY
+   ============================================ */
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .loading-overlay {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.loading-overlay.show {
+    display: flex;
+}
+
+.loading-spinner {
+    background: white;
+    padding: 30px 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .loading-spinner {
+    background: #1e293b;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.loading-spinner i {
+    font-size: 3rem;
+    color: #1a1a4d;
+    animation: spin 1s linear infinite;
+    display: block;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .loading-spinner i {
+    color: #60a5fa;
+}
+
+.loading-spinner p {
+    margin: 0;
+    color: #495057;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .loading-spinner p {
+    color: #e2e8f0;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+
+.alert {
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.alert i {
+    font-size: 1.2rem;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d1e7dd 0%, #c3e6cb 100%);
+    border: 1px solid #badbcc;
+    border-left: 4px solid #28a745;
+    color: #0f5132;
+}
+
+body.dark-theme .alert-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    color: #86efac;
+    border-color: #065f46;
+    border-left-color: #10b981;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+    border: 1px solid #f5c2c7;
+    border-left: 4px solid #dc3545;
+    color: #842029;
+}
+
+body.dark-theme .alert-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    color: #fca5a5;
+    border-color: #991b1b;
+    border-left-color: #ef4444;
+}
+
+.btn-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: auto;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .btn-close {
+    color: #e2e8f0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+    .kwitansi-main {
+        padding: 1.5rem;
+    }
+
+    .kwitansi-controls {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .search-wrapper,
+    .sort-wrapper,
+    .btn-tambah {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .kwitansi-main {
+        padding: 1rem;
+        padding-top: 66px;
+    }
+
+    .kwitansi-container {
+        padding: 0;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .control-bar {
+        gap: 10px;
+    }
+
+    .search-input {
+        font-size: 0.95rem;
+        padding: 11px 85px 11px 18px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.95rem;
+        padding: 11px 20px;
+    }
+
+    .kwitansi-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .table-kwitansi {
+        min-width: 700px;
+    }
+
+    .btn-unduh,
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        min-width: 55px;
+    }
+}
+
+@media (max-width: 576px) {
+    .kwitansi-main {
+        padding: 0.75rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.25rem;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+        padding: 10px 80px 10px 15px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
+
+    .btn-tambah {
+        min-width: 100%;
+    }
+
+    .table-kwitansi th,
+    .table-kwitansi td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+
+    .badge-status {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+
+    .action-buttons {
+        gap: 4px;
+    }
+
+    .btn-unduh,
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.65rem;
+        padding: 5px 8px;
+        min-width: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .kwitansi-main {
+        padding: 0.5rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.1rem;
+    }
+
+    .table-kwitansi {
+        min-width: 650px;
+    }
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+.kwitansi-main,
+.dashboard-title,
+.project-info,
+.search-input,
+.search-btn,
+.btn-clear-search,
+.search-hint,
+.sort-btn,
+.sort-dropdown,
+.sort-item,
+.btn-tambah,
+.kwitansi-table-wrapper,
+.table-kwitansi td,
+.table-kwitansi tbody tr,
+.sumber-label,
+.sumber-detail,
+.btn-unduh,
+.btn-edit,
+.btn-hapus,
+.empty-state,
+.empty-state-icon,
+.btn-tambah-first,
+.no-results,
+.loading-overlay,
+.loading-spinner,
+.alert,
+.btn-close {
+    transition: all 0.3s ease;
+}

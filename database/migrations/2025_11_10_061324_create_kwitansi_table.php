@@ -9,32 +9,43 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kwitansi', function (Blueprint $table) {
-            $table->id('Id_Kwitansi');
+            // ✅ UPDATED: Primary key jadi STRING untuk format profesional
+            // Format: KWT-20251210-A7X9K2
+            $table->string('Id_Kwitansi', 50)->primary();
             
-            // 🔗 Id_Sumber bisa berasal dari tabel RAB, Penjualan, atau Proyek
+            // 🔗 Id_Sumber bisa berasal dari tabel RAB atau Penjualan
             $table->unsignedBigInteger('Id_Sumber')->nullable();
-
-            // Tambahkan 'proyek' agar fleksibel
-            $table->enum('Sumber_Tabel', ['rabs', 'penjualan', 'proyek'])->nullable();
+            
+            // Sumber hanya RAB atau Penjualan sesuai requirements
+            $table->enum('Sumber_Tabel', ['rabs', 'penjualan'])->nullable();
 
             $table->string('Sales', 100)->nullable();
             $table->date('Tanggal_Kwitansi')->nullable();
+            
+            // Total dari data sumber (RAB/Penjualan) - auto-fill
             $table->double('Total', 15, 2)->default(0);
-            $table->string('Metode_Pembayaran', 100)->nullable();
-            $table->enum('Status', ['Lunas', 'Belum Lunas'])->default('Belum Lunas');
+            
+            // Total yang dibayarkan oleh customer
+            $table->double('Total_Pembayaran', 15, 2)->default(0);
+            
+            // Metode pembayaran: Cash, QRIS, Transfer
+            $table->enum('Metode_Pembayaran', ['Cash', 'QRIS', 'Transfer'])->nullable();
+            
+            // Untuk Pembayaran (text field untuk keterangan)
+            $table->text('Untuk_Pembayaran')->nullable();
+            
+            // ✅ UPDATED: Status sekarang VARCHAR untuk support DP dinamis
+            // Format: "Lunas", "DP 0%", "DP 10%", "DP 66%", dst
+            $table->string('Status', 20)->default('DP 0%');
 
             $table->timestamps();
 
-            /**
-             * ⚙️ Catatan:
-             * Karena Id_Sumber bisa merujuk ke lebih dari satu tabel,
-             * kita TIDAK menambahkan foreign key constraint langsung ke satu tabel (seperti rabs saja),
-             * karena akan memunculkan error saat referensi ke penjualan/proyek.
-             * Sebagai gantinya, relasi ditangani lewat Model Eloquent.
-             */
-
-            // Jika tetap ingin FK ke RAB secara opsional, bisa tambahkan index untuk performa
+            // Index untuk performa query
             $table->index('Id_Sumber');
+            $table->index('Sumber_Tabel');
+            $table->index(['Id_Sumber', 'Sumber_Tabel']);
+            $table->index('Status'); // ✅ TAMBAHAN: Index untuk sorting by status
+            $table->index('Tanggal_Kwitansi'); // ✅ TAMBAHAN: Index untuk sorting by tanggal
         });
     }
 

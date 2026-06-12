@@ -1,0 +1,693 @@
+/* ============================================
+   LAPORAN EDIT - STYLING (7 COLUMNS - NO REMOVED)
+   WITH FULL DARK THEME SUPPORT (SAME AS CREATE)
+   ============================================ */
+
+/* Main Container - FIXED */
+.laporan-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 80px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .laporan-main {
+    background-color: #0f172a;
+}
+
+/* Container Utama */
+.laporan-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 1600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Form Container */
+body.dark-theme .form-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+    color: #1a1a4d;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Title */
+body.dark-theme .form-title {
+    color: #60a5fa;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* Custom Labels & Inputs */
+.custom-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Label */
+body.dark-theme .custom-label {
+    color: #cbd5e0;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+body.dark-theme .text-danger {
+    color: #f87171;
+}
+
+.custom-input,
+.custom-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #212529;
+}
+
+/* Dark Theme Inputs */
+body.dark-theme .custom-input,
+body.dark-theme .custom-select {
+    background: #0f172a;
+    border-color: #ffffff;
+    color: #e2e8f0;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+    outline: none;
+    border-color: #1a1a4d;
+    box-shadow: 0 0 0 3px rgba(26, 26, 77, 0.1);
+}
+
+/* Dark Theme Focus */
+body.dark-theme .custom-input:focus,
+body.dark-theme .custom-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    background: #1e293b;
+}
+
+.custom-input:read-only {
+    background: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/* Dark Theme Readonly */
+body.dark-theme .custom-input:read-only {
+    background: #1e293b;
+    color: #94a3b8;
+    border-color: #475569;
+}
+
+body.dark-theme .custom-input::placeholder {
+    color: #64748b;
+}
+
+body.dark-theme .custom-select option {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.custom-input.text-center {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Profit Display */
+.profit-display {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #28a745;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    background: #f8f9fa;
+    color: #28a745;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Profit Display */
+body.dark-theme .profit-display {
+    background: #0f172a;
+    border-color: #3b82f6;
+    color: #60a5fa;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+/* ============================================
+   🔥 TABLE RESPONSIVE WRAPPER
+   ============================================ */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+body.dark-theme .table-responsive-wrapper::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+    background: #1a1a4d;
+    border-radius: 10px;
+}
+
+body.dark-theme .table-responsive-wrapper::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #13154f;
+}
+
+body.dark-theme .table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* ============================================
+   TABLE HEADER ROW - 7 COLUMNS (NO REMOVED)
+   ============================================ */
+.table-header-row {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a1a4d 0%, #2d3f8f 100%);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(26, 26, 77, 0.15);
+    min-width: max-content;
+}
+
+/* Dark Theme Table Header */
+body.dark-theme .table-header-row {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.table-header-cell {
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* 🔥 7 KOLOM SIZING (TANPA NO) */
+.table-header-cell:nth-child(1) { width: 220px; flex-shrink: 0; }     /* Rincian */
+.table-header-cell:nth-child(2) { flex: 1; min-width: 90px; }         /* Jumlah */
+.table-header-cell:nth-child(3) { flex: 0.8; min-width: 80px; }       /* Satuan */
+.table-header-cell:nth-child(4) { flex: 1.5; min-width: 120px; }      /* Total */
+.table-header-cell:nth-child(5) { flex: 1.5; min-width: 120px; }      /* Modal Satuan */
+.table-header-cell:nth-child(6) { flex: 1.5; min-width: 120px; }      /* Modal Total */
+.table-header-cell:nth-child(7) { flex: 1.5; min-width: 120px; }      /* Profit */
+
+/* Detail Container */
+#detailContainer {
+    min-height: 150px;
+    max-height: 500px;
+    overflow-y: auto;
+    min-width: max-content;
+}
+
+#detailContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+#detailContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+body.dark-theme #detailContainer::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+#detailContainer::-webkit-scrollbar-thumb {
+    background: #1a1a4d;
+    border-radius: 10px;
+}
+
+body.dark-theme #detailContainer::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+}
+
+#detailContainer::-webkit-scrollbar-thumb:hover {
+    background: #13154f;
+}
+
+body.dark-theme #detailContainer::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* ============================================
+   DETAIL ROW - 7 COLUMNS (NO REMOVED)
+   ============================================ */
+.detail-row {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    min-width: max-content;
+}
+
+/* Dark Theme Detail Row */
+body.dark-theme .detail-row {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:hover {
+    border-color: #1a1a4d;
+    box-shadow: 0 2px 12px rgba(26, 26, 77, 0.1);
+    transform: translateX(5px);
+}
+
+body.dark-theme .detail-row:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    background: #334155;
+}
+
+.detail-cell {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.detail-cell .custom-input {
+    height: 42px;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+/* 🔥 DARK THEME - FONT COLOR FIX untuk input di dalam detail cell */
+body.dark-theme .detail-cell .custom-input {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+body.dark-theme .detail-cell .custom-input:read-only {
+    color: #e2e8f0 !important;
+}
+
+/* 🔥 7 KOLOM SIZING - MATCHING HEADER (TANPA NO) */
+.detail-cell:nth-child(1) { width: 220px; flex-shrink: 0; }     /* Rincian */
+.detail-cell:nth-child(2) { flex: 1; min-width: 90px; }         /* Jumlah */
+.detail-cell:nth-child(3) { flex: 0.8; min-width: 80px; }       /* Satuan */
+.detail-cell:nth-child(4) { flex: 1.5; min-width: 120px; }      /* Total */
+.detail-cell:nth-child(5) { flex: 1.5; min-width: 120px; }      /* Modal Satuan */
+.detail-cell:nth-child(6) { flex: 1.5; min-width: 120px; }      /* Modal Total */
+.detail-cell:nth-child(7) { flex: 1.5; min-width: 120px; }      /* Profit */
+
+/* Alert Validation */
+.alert-validation {
+    background: #f8d7da;
+    border: 2px solid #f5c2c7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #842029;
+}
+
+/* Dark Theme Alert */
+body.dark-theme .alert-validation {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-color: #dc2626;
+    color: #fca5a5;
+}
+
+.alert-validation strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+body.dark-theme .alert-validation strong {
+    color: #fecaca;
+}
+
+.alert-validation p {
+    margin: 0;
+}
+
+.alert-validation ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+}
+
+.alert-validation li {
+    margin-bottom: 5px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+body.dark-theme .form-actions {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-batal,
+.btn-simpan {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-batal {
+    background: #6c757d;
+    color: white;
+}
+
+/* Dark Theme Batal */
+body.dark-theme .btn-batal {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
+}
+
+.btn-batal:hover {
+    background: #5a6268;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+body.dark-theme .btn-batal:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    box-shadow: 0 6px 16px rgba(74, 85, 104, 0.5);
+}
+
+.btn-simpan {
+    background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+    color: #1a1a4d;
+}
+
+/* Dark Theme Simpan */
+body.dark-theme .btn-simpan {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-simpan:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+body.dark-theme .btn-simpan:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+}
+
+.btn-simpan:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   🔥 RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1400px) {
+    .form-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .laporan-main {
+        padding: 1.5rem;
+        padding-top: 80px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .table-responsive-wrapper {
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 10px;
+        background: #f8f9fa;
+    }
+
+    body.dark-theme .table-responsive-wrapper {
+        border-color: rgba(255, 255, 255, 0.1);
+        background: #0f172a;
+    }
+}
+
+/* 🔥 MOBILE - HORIZONTAL SCROLL */
+@media (max-width: 768px) {
+    .laporan-main {
+        padding: 1rem;
+        padding-top: 80px;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+    }
+
+    .form-title {
+        font-size: 1.25rem;
+    }
+
+    .table-responsive-wrapper {
+        border: 2px solid #1a1a4d;
+        border-radius: 12px;
+        padding: 10px;
+        background: #f8f9fa;
+    }
+
+    body.dark-theme .table-responsive-wrapper {
+        border-color: #3b82f6;
+        background: #0f172a;
+    }
+
+    .table-responsive-wrapper::after {
+        content: '← Geser untuk melihat semua kolom →';
+        display: block;
+        text-align: center;
+        padding: 8px;
+        font-size: 11px;
+        color: #6c757d;
+        background: #fff;
+        border-radius: 0 0 10px 10px;
+        margin: 10px -10px -10px -10px;
+        font-style: italic;
+        border-top: 1px dashed #dee2e6;
+    }
+
+    body.dark-theme .table-responsive-wrapper::after {
+        background: #1e293b;
+        color: #94a3b8;
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 🔥 Min-width untuk 7 kolom = ~1000px */
+    .table-header-row,
+    #detailContainer,
+    .detail-row {
+        min-width: 1050px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 15px 10px;
+    }
+
+    .form-title {
+        font-size: 1.1rem;
+    }
+
+    .custom-label {
+        font-size: 0.85rem;
+    }
+
+    .custom-input,
+    .custom-select {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .profit-display {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+
+    .table-responsive-wrapper::after {
+        font-size: 10px;
+        padding: 6px;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+}
+
+.row > * {
+    padding: 0.5rem;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-md-4 {
+    flex: 0 0 33.33333333%;
+    max-width: 33.33333333%;
+}
+
+@media (max-width: 768px) {
+    .col-md-6,
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.g-3 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.bi {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+    outline: 2px solid #1a1a4d;
+    outline-offset: 2px;
+}
+
+body.dark-theme *:focus-visible {
+    outline: 2px solid #3b82f6;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+.laporan-main,
+.form-container,
+.form-title,
+.custom-label,
+.custom-input,
+.custom-select,
+.profit-display,
+.detail-row,
+.btn-batal,
+.btn-simpan {
+    transition: all 0.3s ease;
+}

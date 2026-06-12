@@ -1,96 +1,448 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container mt-4">
-    <h2 class="mb-4">Tambah Proyek Baru</h2>
+@section('title', 'Tambah Proyek')
 
-    {{-- Pesan error validasi --}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Terjadi kesalahan!</strong><br><br>
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/proyek-style.css') }}">
+<style>
+    /* ========== TAMBAH PROYEK SPECIFIC STYLES ========== */
+    
+    /* Main Content */
+    .proyek-main {
+        margin-left: 0;
+        padding: 2rem;
+        padding-top: 66px;
+        min-height: calc(100vh - 66px);
+        background-color: #f8f9fa;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
 
-    {{-- Form Tambah Proyek --}}
-    <form action="{{ route('proyek.store') }}" method="POST">
-        @csrf
+    /* Dark Theme Main */
+    body.dark-theme .proyek-main {
+        background-color: #0f172a;
+    }
 
-        {{-- Nama Proyek --}}
-        <div class="mb-3">
-            <label for="nama_proyek" class="form-label">Nama Proyek</label>
-            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control"
-                   placeholder="Masukkan nama proyek" value="{{ old('nama_proyek') }}" required>
-        </div>
+    /* Form Container */
+    .form-container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
 
-        {{-- Deskripsi --}}
-        <div class="mb-3">
-            <label for="deskripsi" class="form-label">Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3"
-                      placeholder="Masukkan deskripsi proyek">{{ old('deskripsi') }}</textarea>
-        </div>
+    /* Dark Theme Form Container */
+    body.dark-theme .form-container {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        {{-- Status
-             NOTE: value harus persis sama seperti enum di migration:
-             'Belum_Dimulai', 'Sedang Berjalan', 'Selesai'
-        --}}
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select name="status" id="status" class="form-select" required>
-                <option value="Belum_Dimulai" {{ old('status') == 'Belum_Dimulai' ? 'selected' : '' }}>Belum Dimulai</option>
-                <option value="Sedang Berjalan" {{ old('status') == 'Sedang Berjalan' ? 'selected' : '' }}>Sedang Berjalan</option>
-                <option value="Selesai" {{ old('status') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-            </select>
-        </div>
+    /* Form Title */
+    .form-title {
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
 
-        {{-- Tanggal Mulai --}}
-        <div class="mb-3">
-            <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-            <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control"
-                   value="{{ old('tanggal_mulai') }}">
-        </div>
+    /* Dark Theme Title - Already White, enhance shadow */
+    body.dark-theme .form-title {
+        color: #ffffff;
+        text-shadow: 0 2px 12px rgba(96, 165, 250, 0.4);
+    }
 
-        {{-- Tanggal Selesai --}}
-        <div class="mb-3">
-            <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
-            <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control"
-                   value="{{ old('tanggal_selesai') }}">
-        </div>
+    /* Form Row - 3 Kolom */
+    .form-row-three {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+    }
 
-        {{-- Tombol Simpan --}}
-        <div class="d-flex justify-content-between">
-            <a href="{{ route('proyek.index') }}" class="btn btn-secondary">Kembali</a>
-            <button type="submit" class="btn btn-success">Simpan</button>
-        </div>
-    </form>
-</div>
+    /* Form Row - Full Width */
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
 
-{{-- Script: disable tanggal bila status = Belum_Dimulai --}}
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const statusSelect = document.getElementById('status');
-        const mulaiInput = document.getElementById('tanggal_mulai');
-        const selesaiInput = document.getElementById('tanggal_selesai');
+    .form-group-full {
+        grid-column: 1 / -1;
+    }
 
-        function toggleTanggal() {
-            // value must match the enum string
-            if (statusSelect.value === 'Belum_Dimulai') {
-                mulaiInput.value = '';
-                selesaiInput.value = '';
-                mulaiInput.disabled = true;
-                selesaiInput.disabled = true;
-            } else {
-                mulaiInput.disabled = false;
-                selesaiInput.disabled = false;
-            }
+    /* Input Styles */
+    .custom-input,
+    .custom-select,
+    .custom-textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+        color: #212529;
+    }
+
+    .custom-input:focus,
+    .custom-select:focus,
+    .custom-textarea:focus {
+        outline: none;
+        border-color: #1a1f71;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(26, 31, 113, 0.1);
+    }
+
+    .custom-input::placeholder,
+    .custom-textarea::placeholder {
+        color: #6c757d;
+    }
+
+    /* Dark Theme Inputs */
+    body.dark-theme .custom-input,
+    body.dark-theme .custom-select,
+    body.dark-theme .custom-textarea {
+        background: #0f172a;
+        border-color: #475569;
+        color: #e2e8f0;
+    }
+
+    body.dark-theme .custom-input:focus,
+    body.dark-theme .custom-select:focus,
+    body.dark-theme .custom-textarea:focus {
+        border-color: #3b82f6;
+        background: #1e293b;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    body.dark-theme .custom-input::placeholder,
+    body.dark-theme .custom-textarea::placeholder {
+        color: #64748b;
+    }
+
+    .custom-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    /* Form Actions */
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        gap: 15px;
+    }
+
+    /* Button Styles */
+    .btn-batal,
+    .btn-simpan {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .btn-batal {
+        background: #6c757d;
+        color: white;
+        box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+    }
+
+    .btn-batal:hover {
+        background: #5a6268;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        text-decoration: none;
+    }
+
+    /* Dark Theme Batal Button */
+    body.dark-theme .btn-batal {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        box-shadow: 0 2px 8px rgba(74, 85, 104, 0.3);
+    }
+
+    body.dark-theme .btn-batal:hover {
+        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        box-shadow: 0 4px 12px rgba(74, 85, 104, 0.5);
+    }
+
+    .btn-simpan {
+        background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(26, 31, 113, 0.2);
+    }
+
+    .btn-simpan:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 31, 113, 0.4);
+    }
+
+    /* Dark Theme Simpan Button */
+    body.dark-theme .btn-simpan {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    body.dark-theme .btn-simpan:hover {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Validation Alert */
+    .alert-validation {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+        border: 2px solid #f5c2c7;
+        border-left: 4px solid #dc3545;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        color: #842029;
+        transition: all 0.3s ease;
+    }
+
+    .alert-validation strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .alert-validation ul {
+        margin: 10px 0 0 0;
+        padding-left: 20px;
+    }
+
+    .alert-validation li {
+        margin-bottom: 5px;
+    }
+
+    /* Dark Theme Validation Alert */
+    body.dark-theme .alert-validation {
+        background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+        border-color: #991b1b;
+        border-left-color: #ef4444;
+        color: #fca5a5;
+    }
+
+    body.dark-theme .alert-validation strong {
+        color: #fecaca;
+    }
+
+    /* Validation Errors */
+    .is-invalid {
+        border-color: #dc3545 !important;
+    }
+
+    /* Dark Theme Invalid */
+    body.dark-theme .is-invalid {
+        border-color: #ef4444 !important;
+        background: #1e293b !important;
+    }
+
+    .invalid-feedback {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    /* Dark Theme Invalid Feedback */
+    body.dark-theme .invalid-feedback {
+        color: #fca5a5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 992px) {
+        .proyek-main {
+            padding: 1.5rem;
         }
 
-        toggleTanggal();
-        statusSelect.addEventListener('change', toggleTanggal);
+        .form-container {
+            padding: 30px;
+        }
+
+        .form-row-three {
+            grid-template-columns: 1fr;
+        }
+
+        .form-title {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .proyek-main {
+            padding: 1rem;
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+        .form-title {
+            font-size: 24px;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .btn-batal,
+        .btn-simpan {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .custom-input,
+        .custom-textarea {
+            font-size: 14px;
+            padding: 12px 15px;
+        }
+
+        .btn-batal,
+        .btn-simpan {
+            font-size: 14px;
+            padding: 12px 30px;
+        }
+    }
+
+    /* ========== SMOOTH TRANSITIONS ========== */
+    .proyek-main,
+    .form-container,
+    .form-title,
+    .custom-input,
+    .custom-select,
+    .custom-textarea,
+    .btn-batal,
+    .btn-simpan,
+    .alert-validation,
+    .invalid-feedback {
+        transition: all 0.3s ease;
+    }
+</style>
+@endsection
+
+@section('content')
+<main class="proyek-main">
+    <div class="form-container">
+        <h1 class="form-title">TAMBAH PROYEK</h1>
+
+        {{-- Pesan error validasi --}}
+        @if ($errors->any())
+            <div class="alert-validation">
+                <strong><i class="fas fa-exclamation-triangle"></i> Terjadi kesalahan!</strong>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        {{-- Form Tambah Proyek --}}
+        <form action="{{ route('proyek.store') }}" method="POST">
+            @csrf
+
+            {{-- Baris 1: Nama Proyek, Nama Owner, Nomor HP (3 Kolom) --}}
+            <div class="form-row-three">
+                <div>
+                    <input type="text" 
+                           name="nama_proyek" 
+                           class="custom-input @error('nama_proyek') is-invalid @enderror"
+                           placeholder="Masukkan Nama Proyek" 
+                           value="{{ old('nama_proyek') }}" 
+                           required>
+                    @error('nama_proyek')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div>
+                    <input type="text" 
+                           name="nama_owner" 
+                           class="custom-input @error('nama_owner') is-invalid @enderror"
+                           placeholder="Masukkan Nama Owner" 
+                           value="{{ old('nama_owner') }}">
+                    @error('nama_owner')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div>
+                    <input type="text" 
+                           name="nomor_hp" 
+                           class="custom-input @error('nomor_hp') is-invalid @enderror"
+                           placeholder="Masukkan Nomor Hp" 
+                           value="{{ old('nomor_hp') }}">
+                    @error('nomor_hp')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            {{-- Baris 2: Deskripsi (Full Width) --}}
+            <div class="form-row">
+                <div class="form-group-full">
+                    <textarea name="deskripsi" 
+                              class="custom-textarea @error('deskripsi') is-invalid @enderror"
+                              placeholder="Masukkan Deskripsi Proyek">{{ old('deskripsi') }}</textarea>
+                    @error('deskripsi')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            {{-- Tombol Aksi --}}
+            <div class="form-actions">
+                <a href="{{ route('proyek.index') }}" class="btn-batal">
+                    <i class="fas fa-times"></i> Batal
+                </a>
+                <button type="submit" class="btn-simpan">
+                    <i class="fas fa-save"></i> Simpan
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+@endsection
+
+@section('scripts')
+<script>
+    console.log('✅ Tambah Proyek loaded successfully with Dark Theme Support!');
+    
+    // Auto dismiss validation alerts
+    document.addEventListener('DOMContentLoaded', function() {
+        const alerts = document.querySelectorAll('.alert-validation');
+        alerts.forEach(function(alert) {
+            setTimeout(function() {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(function() {
+                    alert.remove();
+                }, 500);
+            }, 8000);
+        });
     });
 </script>
 @endsection

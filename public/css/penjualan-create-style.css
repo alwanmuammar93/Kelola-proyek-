@@ -1,0 +1,629 @@
+/* ========== PENJUALAN CREATE SPECIFIC STYLES ========== */
+
+/* Main Content */
+.penjualan-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 66px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .penjualan-main {
+    background-color: #0f172a;
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 1400px;
+    margin: 30px auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Form Container */
+body.dark-theme .form-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Form Title - PUTIH */
+.form-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Title - PUTIH dengan shadow enhanced */
+body.dark-theme .form-title {
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(96, 165, 250, 0.4);
+}
+
+/* ========== SALES SECTION ========== */
+.sales-section {
+    background: white;
+    border: 2px solid #1a1f71;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Sales Section */
+body.dark-theme .sales-section {
+    background: #0f172a;
+    border: 2px solid #3b82f6;
+}
+
+.sales-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1f71;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Sales Label */
+body.dark-theme .sales-label {
+    color: #60a5fa;
+}
+
+.sales-input-wrapper {
+    position: relative;
+}
+
+.sales-input {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1f71;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.sales-input:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 3px rgba(26, 31, 113, 0.1);
+}
+
+.sales-input::placeholder {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+/* Dark Theme Sales Input */
+body.dark-theme .sales-input {
+    background: #1e293b;
+    border: 2px solid #ffffff;
+    color: #e2e8f0;
+}
+
+body.dark-theme .sales-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .sales-input::placeholder {
+    color: #64748b;
+}
+
+.sales-input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #1a1f71;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Sales Icon */
+body.dark-theme .sales-input-icon {
+    color: #60a5fa;
+}
+
+.sales-note {
+    font-size: 13px;
+    color: #6c757d;
+    margin-top: 8px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Sales Note */
+body.dark-theme .sales-note {
+    color: #94a3b8;
+}
+
+/* ========== ACTION BUTTONS ========== */
+.action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: nowrap !important;
+    align-items: center;
+}
+
+.btn-tambah-rincian,
+.btn-hapus-rincian {
+    padding: 10px 20px !important;
+    border: 2px solid !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto !important;
+    white-space: nowrap;
+    flex: 0 0 auto !important;
+}
+
+.btn-tambah-rincian {
+    border-color: #1a1f71 !important;
+    color: #1a1f71 !important;
+    background: white !important;
+    background-color: white !important;
+}
+
+.btn-tambah-rincian:hover {
+    background: #1a1f71 !important;
+    background-color: #1a1f71 !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 31, 113, 0.3);
+}
+
+/* Dark Theme Tambah Button */
+body.dark-theme .btn-tambah-rincian {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+}
+
+body.dark-theme .btn-tambah-rincian:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: #60a5fa !important;
+    border-color: #60a5fa !important;
+}
+
+.btn-hapus-rincian {
+    border-color: #6c757d !important;
+    color: #6c757d !important;
+    background: white !important;
+    background-color: white !important;
+}
+
+.btn-hapus-rincian:hover {
+    background: #6c757d !important;
+    background-color: #6c757d !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Dark Theme Hapus Button */
+body.dark-theme .btn-hapus-rincian {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: #94a3b8 !important;
+    color: #94a3b8 !important;
+}
+
+body.dark-theme .btn-hapus-rincian:hover {
+    background: rgba(148, 163, 184, 0.1) !important;
+    background-color: rgba(148, 163, 184, 0.1) !important;
+    color: #cbd5e0 !important;
+    border-color: #cbd5e0 !important;
+}
+
+/* ========== FORM LABELS & RINCIAN ========== */
+.form-labels {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 250px;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #1a1f71;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Form Labels */
+body.dark-theme .form-labels {
+    color: #60a5fa;
+}
+
+.rincian-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 250px;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: start;
+}
+
+/* ========== CUSTOM INPUT ========== */
+.custom-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    color: #212529;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #1a1f71;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(26, 31, 113, 0.1);
+}
+
+.custom-input::placeholder {
+    color: #6c757d;
+}
+
+/* Dark Theme Custom Input - BORDER PUTIH */
+body.dark-theme .custom-input {
+    background: #0f172a;
+    border: 2px solid #ffffff;
+    color: #e2e8f0;
+}
+
+body.dark-theme .custom-input:focus {
+    border-color: #3b82f6;
+    background: #1e293b;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .custom-input::placeholder {
+    color: #64748b;
+}
+
+.custom-input:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+    color: #495057;
+    font-weight: 600;
+}
+
+/* Dark Theme Disabled Input */
+body.dark-theme .custom-input:disabled {
+    background: #1e293b;
+    color: #94a3b8;
+    border-color: #475569;
+}
+
+/* ========== TOTAL SECTION ========== */
+.total-section {
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Total Section */
+body.dark-theme .total-section {
+    background: #0f172a;
+    border: 2px solid #ffffff;
+}
+
+.total-label {
+    font-weight: 600;
+    color: #1a1f71;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Total Label */
+body.dark-theme .total-label {
+    color: #60a5fa;
+}
+
+.total-value {
+    font-weight: 700;
+    color: #1a1f71;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Total Value */
+body.dark-theme .total-value {
+    color: #60a5fa;
+}
+
+/* ========== FORM ACTIONS ========== */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.btn-batal,
+.btn-simpan {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.btn-batal {
+    background: #6c757d;
+    color: white;
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+.btn-batal:hover {
+    background: #5a6268;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+    text-decoration: none;
+}
+
+/* Dark Theme Batal Button */
+body.dark-theme .btn-batal {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 2px 8px rgba(74, 85, 104, 0.3);
+}
+
+body.dark-theme .btn-batal:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.5);
+}
+
+.btn-simpan {
+    background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(26, 31, 113, 0.2);
+}
+
+.btn-simpan:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 31, 113, 0.4);
+}
+
+/* Dark Theme Simpan Button */
+body.dark-theme .btn-simpan {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-theme .btn-simpan:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+}
+
+/* ========== VALIDATION ========== */
+.alert-validation {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+    border: 2px solid #f5c2c7;
+    border-left: 4px solid #dc3545;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #842029;
+    transition: all 0.3s ease;
+}
+
+.alert-validation strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.alert-validation ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+}
+
+.alert-validation li {
+    margin-bottom: 5px;
+}
+
+/* Dark Theme Validation Alert */
+body.dark-theme .alert-validation {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-color: #991b1b;
+    border-left-color: #ef4444;
+    color: #fca5a5;
+}
+
+body.dark-theme .alert-validation strong {
+    color: #fecaca;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Dark Theme Invalid */
+body.dark-theme .is-invalid {
+    border-color: #ef4444 !important;
+    background: #1e293b !important;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Invalid Feedback */
+body.dark-theme .invalid-feedback {
+    color: #fca5a5;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1200px) {
+    .form-labels,
+    .rincian-item {
+        grid-template-columns: 60px 1fr 150px 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .penjualan-main {
+        padding: 1.5rem;
+    }
+
+    .form-container {
+        padding: 30px;
+        margin: 20px auto;
+    }
+
+    .form-title {
+        font-size: 28px;
+    }
+
+    .form-labels,
+    .rincian-item {
+        grid-template-columns: 1fr;
+    }
+
+    .form-labels {
+        display: none;
+    }
+
+    .rincian-item {
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+    }
+
+    /* Dark Theme Rincian Item Responsive */
+    body.dark-theme .rincian-item {
+        border-color: #ffffff;
+        background: #1e293b;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn-tambah-rincian,
+    .btn-hapus-rincian {
+        width: auto;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .penjualan-main {
+        padding: 1rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 24px;
+    }
+
+    .sales-section {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .sales-input {
+        font-size: 16px;
+        padding: 12px 15px 12px 45px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-input {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        font-size: 14px;
+        padding: 12px 30px;
+    }
+
+    .btn-tambah-rincian,
+    .btn-hapus-rincian {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* ========== SMOOTH TRANSITIONS ========== */
+.penjualan-main,
+.form-container,
+.form-title,
+.sales-section,
+.sales-label,
+.sales-input,
+.sales-input-icon,
+.sales-note,
+.btn-tambah-rincian,
+.btn-hapus-rincian,
+.form-labels,
+.custom-input,
+.total-section,
+.total-label,
+.total-value,
+.btn-batal,
+.btn-simpan,
+.alert-validation,
+.invalid-feedback {
+    transition: all 0.3s ease;
+}

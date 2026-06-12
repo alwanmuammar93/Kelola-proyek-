@@ -1,0 +1,1618 @@
+/* ============================================
+   RAB CREATE - STYLESHEET (COMPLETE VERSION)
+   PT Surabaya Las
+   
+   UPDATED: Fully compatible with Blade structure
+   All classes matched and optimized with DARK THEME
+   FIXED: Modal animation - NO JUMPING!
+   ============================================ */
+
+/* ============================================
+   MAIN LAYOUT - FIXED VERSION
+   ============================================ */
+
+.rab-main {
+    /* FIXED: Remove margin-left karena sudah dihandle di layouts.app */
+    margin-left: 0 !important;
+    padding: 2rem;
+    padding-top: 90px; /* Match with Blade inline style */
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    /* Remove transition karena tidak ada margin-left lagi */
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .rab-main {
+    background-color: #0f172a;
+}
+
+/* REMOVED: Tidak perlu lagi karena spacing dihandle di content-wrapper */
+/* .rab-sidebar.collapsed ~ .content-wrapper .rab-main sudah tidak diperlukan */
+
+.proyek-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ============================================
+   FORM CONTAINER
+   ============================================ */
+
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Form Container */
+body.dark-theme .form-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+    color: #1a1f71;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Title */
+body.dark-theme .form-title {
+    color: #60a5fa;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* ============================================
+   HIDE COLUMN NO - CRITICAL FIX
+   ============================================ */
+
+.col-no-hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ============================================
+   ALERT VALIDATION
+   ============================================ */
+
+.alert-validation {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+    border: 2px solid #dc3545;
+    border-left: 5px solid #dc3545;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    color: #842029;
+    animation: slideInDown 0.4s ease;
+}
+
+/* Dark Theme Alert */
+body.dark-theme .alert-validation {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-color: #dc2626;
+    color: #fca5a5;
+}
+
+.alert-validation strong {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #721c24;
+}
+
+body.dark-theme .alert-validation strong {
+    color: #fecaca;
+}
+
+.alert-validation strong i {
+    margin-right: 8px;
+}
+
+.alert-validation ul {
+    margin: 10px 0 0 0;
+    padding-left: 25px;
+    list-style: none;
+}
+
+.alert-validation li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.alert-validation li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+body.dark-theme .alert-validation li::before {
+    color: #f87171;
+}
+
+/* ============================================
+   FORM ELEMENTS - LABELS & INPUTS
+   ============================================ */
+
+.custom-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Label */
+body.dark-theme .custom-label {
+    color: #cbd5e0;
+}
+
+.text-danger {
+    color: #dc3545;
+    font-weight: 700;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+    color: #212529;
+}
+
+/* Dark Theme Input */
+body.dark-theme .custom-input {
+    background: #0f172a;
+    border-color: #ffffff;
+    color: #e2e8f0;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+    background: #fff;
+}
+
+/* Dark Theme Input Focus */
+body.dark-theme .custom-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    background: #1e293b;
+}
+
+.custom-input:read-only,
+.custom-input[readonly] {
+    background: #f8f9fa;
+    cursor: not-allowed;
+    color: #6c757d;
+}
+
+/* Dark Theme Input Readonly */
+body.dark-theme .custom-input:read-only,
+body.dark-theme .custom-input[readonly] {
+    background: #1e293b;
+    color: #94a3b8;
+    border-color: #475569;
+}
+
+.custom-input::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+body.dark-theme .custom-input::placeholder {
+    color: #64748b;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    cursor: pointer;
+    color: #212529;
+}
+
+/* Dark Theme Select */
+body.dark-theme .custom-select {
+    background: #0f172a;
+    border-color: #ffffff;
+    color: #e2e8f0;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+}
+
+body.dark-theme .custom-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .custom-select option {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.custom-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 15px;
+    resize: vertical;
+    min-height: 80px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    line-height: 1.5;
+    background: white;
+    color: #212529;
+}
+
+/* Dark Theme Textarea */
+body.dark-theme .custom-textarea {
+    background: #0f172a;
+    border-color: #ffffff;
+    color: #e2e8f0;
+}
+
+.custom-textarea:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+}
+
+body.dark-theme .custom-textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.custom-textarea::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+body.dark-theme .custom-textarea::placeholder {
+    color: #64748b;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 5px;
+    display: block;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .form-hint {
+    color: #94a3b8;
+}
+
+/* ============================================
+   BUTTON PILIH PROYEK
+   ============================================ */
+
+.btn-pilih-proyek {
+    width: 100%;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+    color: white;
+    border: 2px solid #1a1f71;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Dark Theme Button Pilih Proyek */
+body.dark-theme .btn-pilih-proyek {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-color: #3b82f6;
+}
+
+.btn-pilih-proyek:hover {
+    background: linear-gradient(135deg, #2d3f8f 0%, #1a1f71 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 31, 113, 0.3);
+}
+
+body.dark-theme .btn-pilih-proyek:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+}
+
+.btn-pilih-proyek:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(26, 31, 113, 0.2);
+}
+
+.placeholder-text {
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+}
+
+.selected-text {
+    color: white;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.btn-pilih-proyek i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.btn-pilih-proyek:hover i {
+    transform: translateY(2px);
+}
+
+/* ============================================
+   MODAL OVERLAY & CONTAINER - SMOOTH ANIMATION (NO JUMP!)
+   ============================================ */
+
+.modal-overlay {
+    display: none !important; /* CRITICAL: Force hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    /* 🔥 FIXED: Remove fadeIn animation, use transition only */
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* Dark Theme Modal Overlay */
+body.dark-theme .modal-overlay {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.modal-overlay.active {
+    display: block !important; /* Only show when explicitly active */
+    opacity: 1;
+}
+
+/* 🔥 REMOVED: Old fadeIn animation that caused flicker */
+
+.modal-proyek {
+    display: none !important; /* CRITICAL: Force hide by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    z-index: 9999;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* 🔥 FIXED: Remove slideDown animation, use transition only */
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    overflow: hidden;
+}
+
+/* Dark Theme Modal Proyek */
+body.dark-theme .modal-proyek {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.modal-proyek.active {
+    display: flex !important; /* Only show when explicitly active */
+    flex-direction: column;
+    opacity: 1;
+}
+
+/* 🔥 REMOVED: Old slideDown animation that caused jumping
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);  ← This caused the jump!
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+*/
+
+/* ============================================
+   MODAL HEADER
+   ============================================ */
+
+.modal-header-custom {
+    background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Dark Theme Modal Header */
+body.dark-theme .modal-header-custom {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header-custom h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.modal-header-custom h2 i {
+    margin-right: 12px;
+    font-size: 26px;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Modal Close */
+body.dark-theme .modal-close {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+body.dark-theme .modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-close:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* ============================================
+   MODAL BODY
+   ============================================ */
+
+.modal-body-custom {
+    padding: 30px;
+    overflow-y: auto;
+    flex: 1;
+    background: white;
+}
+
+/* Dark Theme Modal Body */
+body.dark-theme .modal-body-custom {
+    background: #1e293b;
+}
+
+/* Custom scrollbar for modal */
+.modal-body-custom::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body-custom::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+body.dark-theme .modal-body-custom::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.modal-body-custom::-webkit-scrollbar-thumb {
+    background: #1a1f71;
+    border-radius: 10px;
+}
+
+body.dark-theme .modal-body-custom::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+}
+
+.modal-body-custom::-webkit-scrollbar-thumb:hover {
+    background: #2d3f8f;
+}
+
+body.dark-theme .modal-body-custom::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* ============================================
+   MODAL CONTROLS (SEARCH & SORT)
+   ============================================ */
+
+.modal-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.modal-search {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.modal-search input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #212529;
+}
+
+/* Dark Theme Modal Search */
+body.dark-theme .modal-search input {
+    background: #0f172a;
+    border-color: #60a5fa;
+    color: #e2e8f0;
+}
+
+.modal-search input:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+}
+
+body.dark-theme .modal-search input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.modal-search input::placeholder {
+    color: #adb5bd;
+}
+
+body.dark-theme .modal-search input::placeholder {
+    color: #64748b;
+}
+
+.modal-search i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 16px;
+}
+
+body.dark-theme .modal-search i {
+    color: #60a5fa;
+}
+
+.modal-sort {
+    flex: 0 0 auto;
+    width: 200px;
+}
+
+.modal-sort select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #212529;
+}
+
+/* Dark Theme Modal Sort */
+body.dark-theme .modal-sort select {
+    background: #0f172a;
+    border-color: #60a5fa;
+    color: #e2e8f0;
+}
+
+.modal-sort select:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+}
+
+body.dark-theme .modal-sort select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .modal-sort select option {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+/* ============================================
+   PROYEK LIST & CARDS
+   ============================================ */
+
+.proyek-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.proyek-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Dark Theme Proyek Card */
+body.dark-theme .proyek-card {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.proyek-card:hover {
+    border-color: #1a1f71;
+    box-shadow: 0 6px 20px rgba(26, 31, 113, 0.15);
+    transform: translateY(-4px);
+}
+
+body.dark-theme .proyek-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.proyek-card.selected {
+    border-color: #28a745;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    box-shadow: 0 8px 24px rgba(40, 167, 69, 0.25);
+    transform: translateY(-4px);
+}
+
+body.dark-theme .proyek-card.selected {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.proyek-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.proyek-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .proyek-icon {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.proyek-card.selected .proyek-icon {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    transform: scale(1.1);
+}
+
+body.dark-theme .proyek-card.selected .proyek-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.proyek-name {
+    flex: 1;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a1f71;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+body.dark-theme .proyek-name {
+    color: #e2e8f0;
+}
+
+.proyek-card.selected .proyek-name {
+    color: #155724;
+}
+
+body.dark-theme .proyek-card.selected .proyek-name {
+    color: #d1fae5;
+}
+
+.proyek-check {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #dee2e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    background: white;
+}
+
+body.dark-theme .proyek-check {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: #1e293b;
+}
+
+.proyek-card.selected .proyek-check {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+    transform: scale(1.1);
+}
+
+body.dark-theme .proyek-card.selected .proyek-check {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: #10b981;
+}
+
+.proyek-check i {
+    font-size: 14px;
+}
+
+.proyek-owner {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 2px;
+}
+
+body.dark-theme .proyek-owner {
+    color: #94a3b8;
+}
+
+.proyek-owner i {
+    color: #1a1f71;
+    font-size: 15px;
+}
+
+body.dark-theme .proyek-owner i {
+    color: #60a5fa;
+}
+
+.proyek-owner span {
+    line-height: 1.4;
+}
+
+.proyek-status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.status-belum {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+    color: #856404;
+    border: 1px solid #ffc107;
+}
+
+body.dark-theme .status-belum {
+    background: linear-gradient(135deg, #854d0e 0%, #92400e 100%);
+    color: #fef3c7;
+    border-color: #fbbf24;
+}
+
+.status-sudah {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 1px solid #28a745;
+}
+
+body.dark-theme .status-sudah {
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    color: #d1fae5;
+    border-color: #10b981;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.empty-proyek {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6c757d;
+}
+
+body.dark-theme .empty-proyek {
+    color: #94a3b8;
+}
+
+.empty-proyek i {
+    font-size: 80px;
+    color: #dee2e6;
+    margin-bottom: 20px;
+    display: block;
+}
+
+body.dark-theme .empty-proyek i {
+    color: #475569;
+}
+
+.empty-proyek h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #495057;
+    font-weight: 600;
+}
+
+body.dark-theme .empty-proyek h3 {
+    color: #cbd5e0;
+}
+
+.empty-proyek p {
+    font-size: 15px;
+    color: #6c757d;
+    margin: 0;
+}
+
+body.dark-theme .empty-proyek p {
+    color: #64748b;
+}
+
+/* ============================================
+   RINCIAN CONTAINER & CARDS
+   ============================================ */
+
+#rincian-container {
+    margin-top: 30px;
+}
+
+.rincian-card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .rincian-card {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.rincian-card:hover {
+    border-color: #1a1f71;
+    box-shadow: 0 4px 12px rgba(26, 31, 113, 0.1);
+    background: #fff;
+}
+
+body.dark-theme .rincian-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    background: #334155;
+}
+
+.rincian-actions {
+    margin-top: 15px;
+    text-align: right;
+    padding-top: 15px;
+    border-top: 1px dashed #dee2e6;
+}
+
+body.dark-theme .rincian-actions {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-hapus-rincian {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-theme .btn-hapus-rincian {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.btn-hapus-rincian:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+body.dark-theme .btn-hapus-rincian:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
+
+.btn-hapus-rincian:active {
+    transform: translateY(0);
+}
+
+/* Input classes in rincian */
+.jumlah-input,
+.biaya-material-input {
+    font-weight: 600;
+    color: #1a1f71;
+}
+
+body.dark-theme .jumlah-input,
+body.dark-theme .biaya-material-input {
+    color: #60a5fa;
+}
+
+.subtotal-display {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+    letter-spacing: 0.5px;
+}
+
+body.dark-theme .subtotal-display {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ============================================
+   TOTAL RAB & TAMBAH RINCIAN SECTION
+   ============================================ */
+
+.total-tambah-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border: 2px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+body.dark-theme .total-tambah-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.total-rab-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.total-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1f71;
+    margin: 0;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+body.dark-theme .total-label {
+    color: #60a5fa;
+}
+
+.total-display {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0066cc;
+    background: white;
+    padding: 14px 35px;
+    border-radius: 12px;
+    border: 3px solid #0066cc;
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.15);
+    min-width: 250px;
+    text-align: center;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+body.dark-theme .total-display {
+    background: #0f172a;
+    color: #60a5fa;
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.total-display:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+}
+
+body.dark-theme .total-display:hover {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+}
+
+.tambah-rincian-wrapper {
+    flex-shrink: 0;
+}
+
+.btn-tambah-rincian-bottom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+body.dark-theme .btn-tambah-rincian-bottom {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-tambah-rincian-bottom:hover {
+    background: linear-gradient(135deg, #0052a3 0%, #003d7a 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+}
+
+body.dark-theme .btn-tambah-rincian-bottom:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+}
+
+.btn-tambah-rincian-bottom:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.btn-tambah-rincian-bottom i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.btn-tambah-rincian-bottom:hover i {
+    transform: rotate(90deg);
+}
+
+/* ============================================
+   FORM ACTIONS (BATAL & SIMPAN)
+   ============================================ */
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 2px solid #e9ecef;
+}
+
+body.dark-theme .form-actions {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-batal,
+.btn-simpan {
+    padding: 14px 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-batal {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
+}
+
+body.dark-theme .btn-batal {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
+}
+
+.btn-batal:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #545b62 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(108, 117, 125, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+body.dark-theme .btn-batal:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    box-shadow: 0 6px 16px rgba(74, 85, 104, 0.5);
+}
+
+.btn-batal:active {
+    transform: translateY(0);
+}
+
+.btn-simpan {
+    background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+body.dark-theme .btn-simpan {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-simpan:hover {
+    background: linear-gradient(135deg, #ffb300 0%, #ffa000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+}
+
+body.dark-theme .btn-simpan:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+}
+
+.btn-simpan:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet Landscape (992px - 1199px) */
+@media (max-width: 1199px) {
+    .form-container {
+        padding: 35px;
+    }
+    
+    .total-display {
+        min-width: 220px;
+        font-size: 28px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    .rab-main {
+        margin-left: 0;
+        padding: 1.5rem;
+        padding-top: 90px;
+    }
+
+    .rab-sidebar.collapsed ~ .content-wrapper .rab-main {
+        margin-left: 0;
+    }
+
+    .form-container {
+        padding: 30px;
+    }
+
+    .modal-controls {
+        flex-direction: column;
+    }
+
+    .modal-sort {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        width: 100%;
+        padding: 16px 20px;
+    }
+
+    .total-tambah-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        padding: 20px 25px;
+    }
+
+    .total-rab-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .total-label {
+        font-size: 18px;
+    }
+
+    .total-display {
+        font-size: 26px;
+        min-width: 200px;
+        padding: 12px 30px;
+    }
+
+    .btn-tambah-rincian-bottom {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 25px;
+    }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767px) {
+    .rab-main {
+        padding: 1rem;
+        padding-top: 80px;
+    }
+
+    .modal-proyek {
+        width: 95%;
+        max-height: 90vh;
+        border-radius: 15px;
+    }
+
+    .modal-header-custom {
+        padding: 20px 25px;
+    }
+
+    .modal-header-custom h2 {
+        font-size: 20px;
+    }
+
+    .modal-body-custom {
+        padding: 20px;
+    }
+
+    .proyek-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .form-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    .total-tambah-section {
+        padding: 18px 20px;
+        gap: 12px;
+    }
+
+    .total-rab-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .total-label {
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .total-display {
+        min-width: auto;
+        width: 100%;
+        font-size: 24px;
+        padding: 12px 20px;
+    }
+
+    .btn-tambah-rincian-bottom {
+        padding: 14px 20px;
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .btn-tambah-rincian-bottom i {
+        font-size: 16px;
+    }
+
+    .rincian-card {
+        padding: 20px;
+    }
+}
+
+/* Mobile Small (< 576px) */
+@media (max-width: 575px) {
+    .rab-main {
+        padding: 0.75rem;
+        padding-top: 75px;
+    }
+
+    .form-container {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .form-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .custom-label {
+        font-size: 14px;
+    }
+
+    .custom-input,
+    .custom-textarea,
+    .custom-select {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .btn-pilih-proyek {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .modal-header-custom {
+        padding: 18px 20px;
+    }
+
+    .modal-header-custom h2 {
+        font-size: 18px;
+    }
+
+    .modal-header-custom h2 i {
+        font-size: 20px;
+    }
+
+    .modal-close {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .modal-body-custom {
+        padding: 18px;
+    }
+
+    .modal-search input {
+        padding: 10px 16px 10px 40px;
+        font-size: 14px;
+    }
+
+    .modal-sort select {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .proyek-card {
+        padding: 16px;
+    }
+
+    .proyek-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .proyek-name {
+        font-size: 15px;
+    }
+
+    .proyek-owner {
+        font-size: 13px;
+    }
+
+    .proyek-status {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+
+    .total-tambah-section {
+        padding: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .total-label {
+        font-size: 15px;
+    }
+
+    .total-display {
+        font-size: 22px;
+        padding: 10px 16px;
+    }
+
+    .btn-tambah-rincian-bottom {
+        padding: 12px 18px;
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .btn-tambah-rincian-bottom i {
+        font-size: 15px;
+    }
+
+    .rincian-card {
+        padding: 18px;
+    }
+
+    .subtotal-display {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .btn-hapus-rincian {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    .form-actions {
+        margin-top: 30px;
+        padding-top: 25px;
+        gap: 12px;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    .alert-validation {
+        padding: 16px 20px;
+    }
+
+    .alert-validation strong {
+        font-size: 16px;
+    }
+
+    .alert-validation li {
+        font-size: 13px;
+    }
+}
+
+/* Mobile Extra Small (< 400px) */
+@media (max-width: 399px) {
+    .form-title {
+        font-size: 20px;
+    }
+
+    .total-display {
+        font-size: 20px;
+        padding: 10px 14px;
+    }
+
+    .btn-tambah-rincian-bottom {
+        font-size: 13px;
+        padding: 12px 16px;
+    }
+
+    .modal-proyek {
+        width: 98%;
+        border-radius: 12px;
+    }
+
+    .proyek-list {
+        gap: 12px;
+    }
+}

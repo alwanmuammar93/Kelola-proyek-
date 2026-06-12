@@ -9,14 +9,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('proyeks', function (Blueprint $table) {
-            // 🔧 ubah dari $table->id(); ke custom primary key 'id_proyek'
+            // 🔧 custom primary key 'id_proyek'
             $table->bigIncrements('id_proyek'); // ✅ primary key sesuai model
 
             $table->string('nama_proyek');
             $table->text('deskripsi')->nullable();
-            $table->date('tanggal_mulai')->nullable();
-            $table->date('tanggal_selesai')->nullable();
-            $table->enum('status', ['Belum_Dimulai', 'Sedang Berjalan', 'Selesai'])->default('Belum_Dimulai');
+            
+            // ❌ DIHAPUS: tanggal_mulai dan tanggal_selesai
+            // $table->date('tanggal_mulai')->nullable();
+            // $table->date('tanggal_selesai')->nullable();
+            
+            // ✅ DIUBAH: Status baru sesuai alur RAB dan proyek
+            $table->enum('status', [
+                'RAB Belum Dibuat', 
+                'RAB Telah Dibuat', 
+                'Proyek Dikerjakan', 
+                'Proyek Selesai Dikerjakan'
+            ])->default('RAB Belum Dibuat');
+            
             $table->timestamps();
         });
     }

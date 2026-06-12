@@ -7,21 +7,25 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Jalankan migration: membuat tabel penjualans
+     * Jalankan migration: membuat tabel penjualans (HEADER)
      */
     public function up(): void
     {
         Schema::create('penjualans', function (Blueprint $table) {
+            // 🔹 PRIMARY KEY
+            $table->id('id_penjualan');
 
-            // 🔹 DISAMAKAN DENGAN MODEL (primary key = id_barang)
-            $table->id('id_barang');
+            // 🔹 Kolom untuk nama sales
+            $table->string('nama_sales');
 
-            // Struktur kolom lain tetap seperti yang sudah kamu tulis
-            $table->string('nama_barang');    // Nama barang
-            $table->integer('jumlah');        // Jumlah barang
-            $table->double('harga_satuan');   // Harga per unit
-            $table->double('total');          // Total harga
-            $table->timestamps();             // created_at & updated_at
+            // 🔹 Tanggal penjualan
+            $table->date('tanggal')->default(now());
+
+            // 🔹 Total keseluruhan (opsional, bisa dihitung dari details)
+            $table->decimal('total', 15, 2)->default(0);
+
+            // 🔹 Timestamps
+            $table->timestamps();
         });
     }
 

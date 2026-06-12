@@ -1,0 +1,1014 @@
+/* ============================================
+   LAPORAN MAIN LAYOUT
+   ============================================ */
+
+.laporan-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 66px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .laporan-main {
+    background-color: #0f172a;
+}
+
+/* ============================================
+   DASHBOARD KELOLA LAPORAN - STYLING
+   ============================================ */
+
+.laporan-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+.laporan-header-title {
+    margin-bottom: 30px;
+}
+
+.laporan-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a4d;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Title */
+body.dark-theme .laporan-title {
+    color: #60a5fa;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* ============================================
+   CONTROLS SECTION - GRID LAYOUT
+   ============================================ */
+
+.laporan-controls {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ===== SEARCH WRAPPER ===== */
+.search-wrapper {
+    width: 400px;
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: 2px solid #ffd93d;
+    border-radius: 50px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #ffb800;
+    box-shadow: 0 0 0 3px rgba(255, 217, 61, 0.2);
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+/* Dark Theme Search Input */
+body.dark-theme .search-input {
+    background-color: #1e293b;
+    border-color: #64748b;
+    color: #e2e8f0;
+}
+
+body.dark-theme .search-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .search-input::placeholder {
+    color: #64748b;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffd93d;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #ffb800;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.search-btn i {
+    font-size: 1.2rem;
+    color: #1a1a4d;
+}
+
+/* Dark Theme Search Button */
+body.dark-theme .search-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+body.dark-theme .search-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+body.dark-theme .search-btn i {
+    color: #ffffff;
+}
+
+/* ===== SORT WRAPPER ===== */
+.sort-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    min-width: 120px;
+}
+
+.sort-btn {
+    padding: 12px 25px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+}
+
+.sort-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Dark Theme Sort Button */
+body.dark-theme .sort-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+body.dark-theme .sort-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
+
+.sort-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+/* Dark Theme Dropdown */
+body.dark-theme .sort-dropdown {
+    background: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sort-dropdown.show {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sort-item {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sort-item:last-child {
+    border-bottom: none;
+}
+
+.sort-item:hover {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    padding-left: 25px;
+}
+
+.sort-item.active {
+    background-color: #ffd93d;
+    color: #1a1a4d;
+    font-weight: 600;
+}
+
+/* Dark Theme Sort Items */
+body.dark-theme .sort-item {
+    color: #e2e8f0;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .sort-item:hover {
+    background: #334155;
+    color: #60a5fa;
+}
+
+body.dark-theme .sort-item.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+}
+
+/* ===== TOMBOL TAMBAH LAPORAN (TOP) ===== */
+.btn-tambah {
+    padding: 12px 25px;
+    background-color: #ffd93d;
+    color: #1a1a4d;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(255, 217, 61, 0.2);
+}
+
+.btn-tambah:hover {
+    background-color: #ffb800;
+    color: #1a1a4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 217, 61, 0.4);
+    text-decoration: none;
+}
+
+/* Dark Theme Tambah Button */
+body.dark-theme .btn-tambah {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+body.dark-theme .btn-tambah:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+/* ============================================
+   TABLE STYLING
+   ============================================ */
+
+.laporan-table-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Wrapper */
+body.dark-theme .laporan-table-wrapper {
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.laporan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.laporan-table thead {
+    background-color: #1a1a4d;
+    color: white;
+}
+
+/* Dark Theme Table Header */
+body.dark-theme .laporan-table thead {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.laporan-table thead th {
+    padding: 18px 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.laporan-table tbody td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Body */
+body.dark-theme .laporan-table tbody td {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+.laporan-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.laporan-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Dark Theme Table Row Hover */
+body.dark-theme .laporan-table tbody tr:hover {
+    background-color: #334155;
+}
+
+/* Text Alignment */
+.laporan-table tbody td.text-center {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.laporan-table tbody td.text-end {
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.laporan-table tbody td.text-end strong {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Dark Theme Text Primary */
+body.dark-theme .laporan-table tbody td.text-end strong {
+    color: #60a5fa !important;
+}
+
+/* Nama Laporan Column - SINGLE LINE dengan ellipsis */
+.laporan-table tbody td.nama-laporan {
+    max-width: 280px;
+    min-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+}
+
+.laporan-table tbody td.nama-laporan strong {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Dark Theme Nama Laporan */
+body.dark-theme .laporan-table tbody td.nama-laporan strong {
+    color: #cbd5e0;
+}
+
+/* ============================================
+   ACTION BUTTONS - HORIZONTAL PAKSA!
+   ============================================ */
+
+.action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.action-buttons form {
+    display: inline !important;
+    margin: 0 !important;
+}
+
+.btn-edit,
+.btn-hapus {
+    padding: 7px 14px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+.btn-edit {
+    background-color: #ffd93d !important;
+    color: #1a1a4d !important;
+    box-shadow: 0 2px 4px rgba(255, 217, 61, 0.2) !important;
+}
+
+.btn-edit:hover {
+    background-color: #ffc107 !important;
+    color: #1a1a4d !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 2px 8px rgba(255, 217, 61, 0.3) !important;
+    text-decoration: none !important;
+}
+
+/* Dark Theme Edit Button */
+body.dark-theme .btn-edit {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+body.dark-theme .btn-edit:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.5) !important;
+}
+
+.btn-hapus {
+    background-color: #dc3545 !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2) !important;
+}
+
+.btn-hapus:hover {
+    background-color: #bb2d3b !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Dark Theme Hapus Button */
+body.dark-theme .btn-hapus {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3) !important;
+}
+
+body.dark-theme .btn-hapus:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* ============================================
+   EMPTY STATE - DEFAULT (NO DATA YET)
+   ============================================ */
+
+.empty-state {
+    padding: 60px 20px !important;
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 4rem !important;
+    color: #cbd5e1 !important;
+    margin-bottom: 1.5rem !important;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Empty Icon */
+body.dark-theme .empty-state-icon {
+    color: #475569 !important;
+}
+
+.empty-state-title {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    margin-bottom: 0.5rem !important;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Empty Title */
+body.dark-theme .empty-state-title {
+    color: #cbd5e0 !important;
+}
+
+.empty-state-text {
+    font-size: 0.9rem !important;
+    color: #94a3b8 !important;
+    margin-bottom: 1.5rem !important;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Empty Text */
+body.dark-theme .empty-state-text {
+    color: #64748b !important;
+}
+
+/* ===== TOMBOL TAMBAH LAPORAN PERTAMA (EMPTY STATE) ===== */
+.btn-tambah-first {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 20px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+}
+
+.btn-tambah-first:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.btn-tambah-first i {
+    font-size: 1rem !important;
+}
+
+/* Dark Theme Tambah First Button */
+body.dark-theme .btn-tambah-first {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+body.dark-theme .btn-tambah-first:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5) !important;
+}
+
+/* ============================================
+   SEARCH EMPTY STATE (NO RESULTS)
+   ============================================ */
+
+.search-empty-state {
+    padding: 60px 20px !important;
+    text-align: center;
+}
+
+.search-empty-icon {
+    font-size: 3.5rem !important;
+    color: #cbd5e1 !important;
+    margin-bottom: 1rem !important;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Search Empty Icon */
+body.dark-theme .search-empty-icon {
+    color: #475569 !important;
+}
+
+.search-empty-text {
+    font-size: 1rem !important;
+    color: #64748b !important;
+    margin: 0 !important;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Search Empty Text */
+body.dark-theme .search-empty-text {
+    color: #64748b !important;
+}
+
+/* ============================================
+   ALERT STYLING
+   ============================================ */
+
+.alert {
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d1e7dd 0%, #c3e6cb 100%);
+    border: 1px solid #badbcc;
+    color: #0f5132;
+    border-left: 4px solid #28a745;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+    border: 1px solid #f5c2c7;
+    color: #842029;
+    border-left: 4px solid #dc3545;
+}
+
+/* Dark Theme Alerts */
+body.dark-theme .alert-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    color: #86efac;
+    border-color: #065f46;
+    border-left-color: #10b981;
+}
+
+body.dark-theme .alert-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    color: #fca5a5;
+    border-color: #991b1b;
+    border-left-color: #ef4444;
+}
+
+.alert .btn-close {
+    padding: 0.75rem;
+    margin-left: auto;
+}
+
+body.dark-theme .alert .btn-close {
+    color: #e2e8f0;
+}
+
+.alert i {
+    font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+    .laporan-main {
+        padding: 1.5rem;
+    }
+
+    .laporan-controls {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .search-wrapper,
+    .sort-wrapper,
+    .btn-tambah {
+        width: 100%;
+    }
+
+    .laporan-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .laporan-table {
+        min-width: 880px;
+    }
+}
+
+@media (max-width: 768px) {
+    .laporan-main {
+        padding: 1rem;
+        padding-top: 66px;
+    }
+
+    .laporan-container {
+        padding: 0;
+    }
+
+    .laporan-title {
+        font-size: 1.5rem;
+    }
+
+    .laporan-controls {
+        gap: 10px;
+    }
+
+    .search-input {
+        font-size: 0.95rem;
+        padding: 11px 48px 11px 18px;
+    }
+
+    .search-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.95rem;
+        padding: 11px 20px;
+    }
+
+    /* BUTTONS STAY HORIZONTAL - JUST SMALLER */
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.75rem !important;
+        padding: 6px 12px !important;
+    }
+
+    /* Empty State Responsive */
+    .empty-state-icon {
+        font-size: 3.5rem !important;
+    }
+
+    .empty-state-title {
+        font-size: 1rem !important;
+    }
+
+    .empty-state-text {
+        font-size: 0.85rem !important;
+    }
+
+    .btn-tambah-first {
+        font-size: 0.85rem !important;
+        padding: 9px 18px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .laporan-main {
+        padding: 0.75rem;
+    }
+
+    .laporan-title {
+        font-size: 1.25rem;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+        padding: 10px 45px 10px 15px;
+    }
+
+    .search-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .btn-tambah {
+        min-width: 100%;
+    }
+
+    .laporan-table thead th,
+    .laporan-table tbody td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* BUTTONS STAY HORIZONTAL - EVEN SMALLER */
+    .action-buttons {
+        gap: 4px !important;
+    }
+
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.7rem !important;
+        padding: 5px 10px !important;
+    }
+
+    /* Empty State Responsive */
+    .empty-state-icon {
+        font-size: 3rem !important;
+    }
+
+    .empty-state-title {
+        font-size: 0.95rem !important;
+    }
+
+    .empty-state-text {
+        font-size: 0.8rem !important;
+    }
+
+    .btn-tambah-first {
+        font-size: 0.8rem !important;
+        padding: 8px 16px !important;
+    }
+
+    .btn-tambah-first i {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .laporan-main {
+        padding: 0.5rem;
+    }
+
+    .laporan-title {
+        font-size: 1.1rem;
+    }
+
+    .laporan-table {
+        min-width: 800px;
+    }
+
+    .laporan-table thead th,
+    .laporan-table tbody td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+
+    /* EXTRA SMALL - STILL HORIZONTAL */
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.65rem !important;
+        padding: 5px 8px !important;
+    }
+
+    /* Empty State Responsive */
+    .empty-state {
+        padding: 40px 15px !important;
+    }
+
+    .empty-state-icon {
+        font-size: 2.5rem !important;
+    }
+
+    .empty-state-title {
+        font-size: 0.9rem !important;
+    }
+
+    .empty-state-text {
+        font-size: 0.75rem !important;
+    }
+
+    .btn-tambah-first {
+        font-size: 0.75rem !important;
+        padding: 7px 14px !important;
+        gap: 6px !important;
+    }
+
+    .btn-tambah-first i {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+
+.search-input:focus,
+.sort-btn:focus,
+.btn-tambah:focus,
+.btn-tambah-first:focus,
+.btn-edit:focus,
+.btn-hapus:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+/* Dark Theme Focus */
+body.dark-theme .search-input:focus,
+body.dark-theme .sort-btn:focus,
+body.dark-theme .btn-tambah:focus,
+body.dark-theme .btn-tambah-first:focus,
+body.dark-theme .btn-edit:focus,
+body.dark-theme .btn-hapus:focus {
+    outline-color: #3b82f6;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+.laporan-main,
+.laporan-title,
+.search-input,
+.search-btn,
+.sort-btn,
+.sort-dropdown,
+.sort-item,
+.btn-tambah,
+.btn-tambah-first,
+.btn-edit,
+.btn-hapus,
+.laporan-table-wrapper,
+.laporan-table tbody td,
+.laporan-table tbody tr,
+.empty-state-icon,
+.empty-state-title,
+.empty-state-text,
+.search-empty-icon,
+.search-empty-text,
+.alert {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .laporan-main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .laporan-controls,
+    .btn-tambah,
+    .btn-tambah-first,
+    .action-buttons,
+    .alert {
+        display: none !important;
+    }
+
+    .laporan-table-wrapper {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    .laporan-table {
+        page-break-inside: auto;
+    }
+
+    .laporan-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .laporan-table thead {
+        display: table-header-group;
+    }
+
+    .empty-state,
+    .search-empty-state {
+        display: none !important;
+    }
+}

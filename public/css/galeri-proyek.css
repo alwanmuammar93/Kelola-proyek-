@@ -1,0 +1,824 @@
+/* ==================== HERO SECTION ==================== */
+.hero-proyek {
+    position: relative;
+    height: 500px;
+    background-image: url('/images/proyek/asasasaasa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 31, 63, 0.9) 0%,
+        rgba(0, 31, 63, 0.7) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 .highlight {
+    color: #ffd700;
+    display: block;
+    margin-top: 10px;
+}
+
+.btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #ff4c4c 0%, #ff6b35 100%);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 76, 76, 0.4);
+}
+
+.btn-wa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 76, 76, 0.6);
+    background: linear-gradient(135deg, #ff6b35 0%, #ff4c4c 100%);
+}
+
+.btn-wa svg {
+    flex-shrink: 0;
+}
+
+/* ==================== GALLERY SECTION ==================== */
+.gallery-proyek {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.gallery-proyek .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+}
+
+/* ==================== PROJECT CARD - IMPROVED ==================== */
+.project-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card:active {
+    transform: translateY(-4px);
+}
+
+/* Project Image Wrapper - NEW */
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #e5e7eb;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);
+}
+
+/* Image Overlay - IMPROVED */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 31, 63, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-content svg {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.view-text {
+    color: #ffd700;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Project Info - IMPROVED */
+.project-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-name {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #001f3f;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Project Preview - NEW */
+.project-preview {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+/* ==================== EMPTY STATE - NEW ==================== */
+.gallery-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gallery-empty-state svg {
+    margin-bottom: 20px;
+    opacity: 0.3;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.gallery-empty-state h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.gallery-empty-state p {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==================== MODAL POP-UP - REDESIGNED ==================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Wrapper - NEW */
+.modal-wrapper {
+    width: 100%;
+    max-width: 900px;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal-wrapper.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-container {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button - IMPROVED */
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-close svg {
+    stroke: #ffffff;
+}
+
+/* Modal Content Layout - IMPROVED */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+    overflow: hidden;
+}
+
+/* Modal Image Section - IMPROVED */
+.modal-image-section {
+    width: 100%;
+    height: 250px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Modal Info Section - IMPROVED */
+.modal-info-section {
+    padding: 30px 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Modal Header - SIMPLIFIED */
+.modal-header {
+    margin-bottom: 0;
+}
+
+.modal-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #001f3f;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.modal-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #ff4c4c 0%, #ff6b35 100%);
+    border-radius: 2px;
+}
+
+/* Modal Description Wrapper - NEW */
+.modal-description-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.modal-description {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #64748b;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Contact Button in Modal - IMPROVED */
+.modal-btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    width: 100%;
+}
+
+.modal-btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+}
+
+.modal-btn-contact svg {
+    flex-shrink: 0;
+}
+
+.modal-btn-contact span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Modal Scrollbar Styling */
+.modal-info-section::-webkit-scrollbar,
+.modal-description-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-info-section::-webkit-scrollbar-track,
+.modal-description-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.modal-info-section::-webkit-scrollbar-thumb,
+.modal-description-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.modal-info-section::-webkit-scrollbar-thumb:hover,
+.modal-description-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Extra Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .hero-proyek {
+        height: 350px;
+        margin-top: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .btn-wa {
+        padding: 12px 20px;
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .btn-wa svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .gallery-proyek {
+        padding: 40px 0;
+    }
+
+    .gallery-proyek .container {
+        padding: 0 15px;
+    }
+
+    .projects-grid {
+        gap: 20px;
+    }
+
+    .project-image-wrapper {
+        height: 180px;
+    }
+
+    .project-info {
+        padding: 18px;
+        gap: 10px;
+    }
+
+    .project-name {
+        font-size: 18px;
+    }
+
+    .project-preview {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Empty State Mobile */
+    .gallery-empty-state {
+        padding: 60px 15px;
+    }
+
+    .gallery-empty-state svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .gallery-empty-state h3 {
+        font-size: 20px;
+    }
+
+    .gallery-empty-state p {
+        font-size: 14px;
+    }
+
+    /* Modal Mobile */
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-container {
+        border-radius: 16px;
+        max-height: 90vh;
+    }
+
+    .modal-image-section {
+        height: 200px;
+    }
+
+    .modal-info-section {
+        padding: 25px 20px;
+        gap: 16px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .modal-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .modal-btn-contact {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .modal-close svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Small Mobile (481px - 575px) */
+@media (min-width: 481px) and (max-width: 575px) {
+    .hero-proyek {
+        height: 380px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .btn-wa {
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+
+    .gallery-proyek {
+        padding: 50px 0;
+    }
+
+    .projects-grid {
+        gap: 20px;
+    }
+
+    .project-image-wrapper {
+        height: 200px;
+    }
+
+    .project-name {
+        font-size: 19px;
+    }
+
+    .modal-image-section {
+        height: 220px;
+    }
+
+    /* Empty State */
+    .gallery-empty-state svg {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Mobile - 2 Columns (576px+) */
+@media (min-width: 576px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .project-image-wrapper {
+        height: 180px;
+    }
+
+    .modal-image-section {
+        height: 240px;
+    }
+}
+
+/* Tablet - 3 Columns (768px+) */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+    }
+
+    .hero-proyek {
+        height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .project-image-wrapper {
+        height: 200px;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
+    /* Modal Tablet */
+    .modal-wrapper {
+        max-width: 700px;
+    }
+
+    .modal-image-section {
+        height: 280px;
+    }
+
+    .modal-info-section {
+        padding: 35px 30px;
+    }
+
+    .modal-title {
+        font-size: 24px;
+    }
+}
+
+/* Desktop - 4 Columns (992px+) */
+@media (min-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .project-image-wrapper {
+        height: 220px;
+    }
+
+    /* Modal Desktop - Horizontal Layout */
+    .modal-wrapper {
+        max-width: 900px;
+    }
+
+    .modal-content {
+        flex-direction: row;
+        max-height: 80vh;
+    }
+
+    .modal-image-section {
+        width: 45%;
+        height: auto;
+    }
+
+    .modal-info-section {
+        width: 55%;
+        padding: 40px 35px;
+    }
+
+    .modal-title {
+        font-size: 28px;
+    }
+
+    .modal-description {
+        font-size: 15px;
+    }
+
+    .modal-close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Large Desktop - 5 Columns (1200px+) */
+@media (min-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+    }
+
+    .hero-proyek {
+        height: 500px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .project-image-wrapper {
+        height: 240px;
+    }
+
+    .project-info {
+        padding: 24px;
+    }
+
+    .modal-wrapper {
+        max-width: 1000px;
+    }
+}
+
+/* Extra Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+    .gallery-proyek .container {
+        max-width: 1600px;
+    }
+
+    .project-image-wrapper {
+        height: 260px;
+    }
+}
+
+/* ==================== LOADING STATE ==================== */
+.project-img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+.project-img.loaded {
+    animation: none;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================== SMOOTH TRANSITIONS ==================== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.project-name,
+.project-preview,
+.hero-content h1,
+.btn-wa,
+.modal-title,
+.modal-description,
+.modal-btn-contact {
+    text-rendering: optimizeLegibility;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .modal-overlay,
+    .btn-wa {
+        display: none;
+    }
+}

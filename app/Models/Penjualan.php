@@ -9,43 +9,67 @@ class Penjualan extends Model
 {
     use HasFactory;
 
-    // Nama tabel di database
+    // ✅ Nama tabel di database
     protected $table = 'penjualans';
 
-    // Primary key yang digunakan
-    protected $primaryKey = 'id_barang';
+    // ✅ Primary key yang benar (sesuai migration)
+    protected $primaryKey = 'id_penjualan';
 
-    // WAJIB untuk PostgreSQL bila pakai custom primary key
+    // ✅ Auto increment aktif
     public $incrementing = true;
+
+    // ✅ Tipe primary key
     protected $keyType = 'int';
 
+    // ✅ Timestamps aktif
     public $timestamps = true;
 
-    // Kolom yang bisa diisi (mass assignable)
+    // ✅ DIUBAH: Kolom yang dapat diisi (HEADER saja, tanpa rincian)
     protected $fillable = [
-        'nama_barang',
-        'jumlah',
-        'harga_satuan',
+        'nama_sales',
+        'tanggal',
         'total',
     ];
 
+    // ✅ Cast attributes
+    protected $casts = [
+        'tanggal' => 'date',
+        'total' => 'decimal:2',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     /**
-     * 🔹 Accessor agar bisa tetap dipanggil sebagai "id_penjualan"
-     * meskipun kolom sebenarnya bernama "id_barang".
-     * Ini akan mencegah error undefined di sisi frontend/JavaScript
-     * yang mencari "id_penjualan".
+     * ✅ RELASI: One-to-Many dengan PenjualanDetail
+     * Satu penjualan memiliki banyak detail
      */
-    public function getIdPenjualanAttribute()
+    public function details()
     {
-        return $this->attributes['id_barang'] ?? null;
+        return $this->hasMany(PenjualanDetail::class, 'penjualan_id', 'id_penjualan');
     }
 
     /**
-     * 🔹 Tambahan alias supaya properti "id" juga otomatis mengembalikan id_barang.
-     * Beberapa script JS atau relasi Eloquent kadang mengakses "$penjualan->id".
+     * ✅ Accessor untuk format total dengan Rupiah
      */
-    public function getIdAttribute()
+    public function getTotalFormatAttribute()
     {
-        return $this->attributes['id_barang'] ?? null;
+        return 'Rp ' . number_format($this->total, 0, ',', '.');
+    }
+
+    /**
+     * ✅ Method untuk menghitung total dari semua detail
+     */
+    public function calculateTotal()
+    {
+        return $this->details->sum('subtotal');
+    }
+
+    /**
+     * ✅ Method untuk update total
+     */
+    public function updateTotal()
+    {
+        $this->total = $this->calculateTotal();
+        $this->save();
     }
 }

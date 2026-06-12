@@ -1,0 +1,952 @@
+/* ============================================
+   RAB MAIN LAYOUT (MATCHING LAPORAN)
+   ============================================ */
+
+.rab-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 66px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .rab-main {
+    background-color: #0f172a;
+}
+
+/* ============================================
+   DASHBOARD KELOLA RAB - STYLING
+   ============================================ */
+
+.rab-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+.rab-header-title {
+    margin-bottom: 30px;
+}
+
+.rab-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a4d;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Title */
+body.dark-theme .rab-title {
+    color: #60a5fa;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* ============================================
+   ALERT STYLING
+   ============================================ */
+
+.alert {
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.alert-success {
+    background: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+}
+
+/* Dark Theme Alerts */
+body.dark-theme .alert-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-color: #059669;
+    color: #86efac;
+}
+
+body.dark-theme .alert-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-color: #dc2626;
+    color: #fca5a5;
+}
+
+.alert .btn-close {
+    padding: 0.75rem;
+}
+
+.alert i {
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   CONTROLS SECTION - GRID LAYOUT (FIXED)
+   ============================================ */
+
+.rab-controls {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ===== SEARCH WRAPPER ===== */
+.search-wrapper {
+    width: 400px;
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: 2px solid #ffd93d;
+    border-radius: 50px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    color: #212529;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #ffb800;
+    box-shadow: 0 0 0 3px rgba(255, 217, 61, 0.2);
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+/* Dark Theme Search Input */
+body.dark-theme .search-input {
+    background-color: #1e293b;
+    border-color: #60a5fa;
+    color: #e2e8f0;
+}
+
+body.dark-theme .search-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .search-input::placeholder {
+    color: #64748b;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffd93d;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #ffb800;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.search-btn i {
+    font-size: 1.2rem;
+    color: #1a1a4d;
+}
+
+/* Dark Theme Search Button */
+body.dark-theme .search-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+body.dark-theme .search-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+body.dark-theme .search-btn i {
+    color: white;
+}
+
+/* ===== SORT WRAPPER ===== */
+.sort-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    min-width: 120px;
+}
+
+.sort-btn {
+    padding: 12px 25px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.sort-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Dark Theme Sort Button */
+body.dark-theme .sort-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+body.dark-theme .sort-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.5);
+}
+
+.sort-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+}
+
+/* Dark Theme Sort Dropdown */
+body.dark-theme .sort-dropdown {
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.sort-dropdown.show {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sort-item {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Dark Theme Sort Item */
+body.dark-theme .sort-item {
+    color: #e2e8f0;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.sort-item:last-child {
+    border-bottom: none;
+}
+
+.sort-item:hover {
+    background-color: #f8f9fa;
+    padding-left: 25px;
+}
+
+/* Dark Theme Sort Item Hover */
+body.dark-theme .sort-item:hover {
+    background-color: #334155;
+    color: #60a5fa;
+}
+
+.sort-item.active {
+    background-color: #ffd93d;
+    color: #1a1a4d;
+    font-weight: 600;
+}
+
+/* Dark Theme Sort Item Active */
+body.dark-theme .sort-item.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+/* ===== TOMBOL TAMBAH RAB ===== */
+.btn-tambah {
+    padding: 12px 25px;
+    background-color: #ffd93d;
+    color: #1a1a4d;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 200px;
+}
+
+.btn-tambah:hover {
+    background-color: #ffb800;
+    color: #1a1a4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 217, 61, 0.4);
+    text-decoration: none;
+}
+
+.btn-tambah i {
+    font-size: 1rem;
+}
+
+/* Dark Theme Tambah Button */
+body.dark-theme .btn-tambah {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+body.dark-theme .btn-tambah:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+    color: white;
+}
+
+/* ============================================
+   TABLE STYLING
+   ============================================ */
+
+.rab-table-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Wrapper */
+body.dark-theme .rab-table-wrapper {
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rab-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rab-table thead {
+    background-color: #1a1a4d;
+    color: white;
+}
+
+/* Dark Theme Table Header */
+body.dark-theme .rab-table thead {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.rab-table thead th {
+    padding: 18px 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: white;
+}
+
+/* Dark Theme Table Header Text - PUTIH */
+body.dark-theme .rab-table thead th {
+    color: #ffffff !important;
+}
+
+.rab-table tbody td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Table Body */
+body.dark-theme .rab-table tbody td {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+.rab-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.rab-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Dark Theme Table Row Hover */
+body.dark-theme .rab-table tbody tr:hover {
+    background-color: #334155;
+}
+
+.rab-table tbody td.text-center {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.rab-table tbody td.text-end {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.rab-table tbody td.text-end strong {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Nama Proyek Column - SINGLE LINE */
+.rab-table tbody td.nama-proyek {
+    max-width: 300px;
+    min-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+}
+
+.rab-table tbody td.nama-proyek strong {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Dark Theme Nama Proyek */
+body.dark-theme .rab-table tbody td.nama-proyek strong {
+    color: #cbd5e0;
+}
+
+.rab-table tbody td strong {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Dark Theme Strong Text */
+body.dark-theme .rab-table tbody td strong {
+    color: #e2e8f0;
+}
+
+/* Badge Status */
+.badge-status {
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.badge-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: white;
+}
+
+.badge-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: white;
+}
+
+/* Dark Theme Badges - Keep the same (already good contrast) */
+body.dark-theme .badge-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+body.dark-theme .badge-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+body.dark-theme .badge-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* ============================================
+   ACTION BUTTONS - HORIZONTAL PAKSA!
+   ============================================ */
+
+.action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.action-buttons form {
+    display: inline !important;
+    margin: 0 !important;
+}
+
+.btn-download,
+.btn-edit,
+.btn-hapus {
+    padding: 7px 14px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+.btn-download {
+    background-color: #1a1a4d !important;
+    color: white !important;
+}
+
+.btn-download:hover {
+    background-color: #0d0d26 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(26, 26, 77, 0.3) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.btn-download i {
+    margin-right: 4px;
+}
+
+/* Dark Theme Download Button */
+body.dark-theme .btn-download {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+}
+
+body.dark-theme .btn-download:hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.5) !important;
+}
+
+.btn-edit {
+    background-color: #ffd93d !important;
+    color: #1a1a4d !important;
+}
+
+.btn-edit:hover {
+    background-color: #ffb800 !important;
+    color: #1a1a4d !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(255, 217, 61, 0.3) !important;
+    text-decoration: none !important;
+}
+
+/* Dark Theme Edit Button */
+body.dark-theme .btn-edit {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+}
+
+body.dark-theme .btn-edit:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.5) !important;
+    color: white !important;
+}
+
+.btn-hapus {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-hapus:hover {
+    background-color: #c82333 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Dark Theme Hapus Button */
+body.dark-theme .btn-hapus {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+body.dark-theme .btn-hapus:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 60px 20px !important;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* Dark Theme Empty State */
+body.dark-theme .empty-state {
+    color: #94a3b8;
+}
+
+.empty-state i,
+.empty-state-icon {
+    display: block;
+    margin: 0 auto;
+    font-size: 4rem;
+    color: #dee2e6;
+}
+
+/* Dark Theme Empty State Icon */
+body.dark-theme .empty-state i,
+body.dark-theme .empty-state-icon {
+    color: #475569;
+}
+
+.empty-state p,
+.empty-state-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Dark Theme Empty State Text */
+body.dark-theme .empty-state p,
+body.dark-theme .empty-state-text {
+    color: #64748b;
+}
+
+.empty-state .btn,
+.btn-tambah-first {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-tambah-first:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+/* Dark Theme Tambah First Button */
+body.dark-theme .empty-state .btn,
+body.dark-theme .btn-tambah-first {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+body.dark-theme .btn-tambah-first:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.5);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+    .rab-main {
+        padding: 1.5rem;
+    }
+
+    .rab-controls {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .search-wrapper,
+    .sort-wrapper,
+    .btn-tambah {
+        width: 100%;
+    }
+
+    .rab-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .rab-table {
+        min-width: 950px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rab-main {
+        padding: 1rem;
+        padding-top: 66px;
+    }
+
+    .rab-container {
+        padding: 0;
+    }
+
+    .rab-title {
+        font-size: 1.5rem;
+    }
+
+    .rab-controls {
+        gap: 10px;
+    }
+
+    .search-input {
+        font-size: 0.95rem;
+        padding: 11px 48px 11px 18px;
+    }
+
+    .search-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.95rem;
+        padding: 11px 20px;
+    }
+
+    /* BUTTONS STAY HORIZONTAL - JUST SMALLER */
+    .btn-download,
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.75rem !important;
+        padding: 6px 12px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .rab-main {
+        padding: 0.75rem;
+    }
+
+    .rab-title {
+        font-size: 1.25rem;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+        padding: 10px 45px 10px 15px;
+    }
+
+    .search-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sort-btn,
+    .btn-tambah {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .btn-tambah {
+        min-width: 100%;
+    }
+
+    .rab-table thead th,
+    .rab-table tbody td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    .badge-status {
+        padding: 5px 12px;
+        font-size: 0.7rem;
+    }
+
+    /* BUTTONS STAY HORIZONTAL - EVEN SMALLER */
+    .action-buttons {
+        gap: 4px !important;
+    }
+
+    .btn-download,
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.7rem !important;
+        padding: 5px 10px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .rab-main {
+        padding: 0.5rem;
+    }
+
+    .rab-title {
+        font-size: 1.1rem;
+    }
+
+    .rab-table {
+        min-width: 700px;
+    }
+
+    .rab-table thead th,
+    .rab-table tbody td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+
+    /* EXTRA SMALL - STILL HORIZONTAL */
+    .btn-download,
+    .btn-edit,
+    .btn-hapus {
+        font-size: 0.65rem !important;
+        padding: 5px 8px !important;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+.search-input,
+.search-btn,
+.sort-btn,
+.btn-tambah,
+.btn-download,
+.btn-edit,
+.btn-hapus,
+.rab-table tbody tr,
+.rab-table-wrapper,
+.rab-title {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+.search-input:focus,
+.sort-btn:focus,
+.btn-tambah:focus,
+.btn-download:focus,
+.btn-edit:focus,
+.btn-hapus:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .rab-main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .rab-controls,
+    .btn-tambah,
+    .action-buttons,
+    .alert {
+        display: none !important;
+    }
+
+    .rab-table-wrapper {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    .rab-table {
+        page-break-inside: auto;
+    }
+
+    .rab-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .rab-table thead {
+        display: table-header-group;
+    }
+
+    .badge-status {
+        border: 1px solid #000;
+    }
+}

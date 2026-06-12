@@ -58,18 +58,13 @@ class CreateRabsTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+        public function down()
     {
+        // Hapus foreign key jika ada
         Schema::table('rabs', function (Blueprint $table) {
-
             if (Schema::hasColumn('rabs', 'id_proyek')) {
-                $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                try {
-                    $sm->listTableDetails('rabs')->getForeignKeys();
-                    $table->dropForeign(['id_proyek']);
-                } catch (\Throwable $e) {
-                    // abaikan jika FK tidak ada
-                }
+                // Nama FK Laravel biasanya: rabs_id_proyek_foreign
+                $table->dropForeign(['id_proyek']);
             }
         });
 

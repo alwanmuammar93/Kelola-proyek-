@@ -1,0 +1,629 @@
+/* ============================================
+   KONTAK PAGE STYLES - PT SURABAYA LAS
+   ============================================ */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ============================================
+   HERO SECTION - SIMPLE VERSION (SEPERTI PROYEK)
+   ============================================ */
+.hero-kontak {
+    position: relative;
+    height: 500px;
+    background-image: url('/images/WhatsApp Image 2025-12-11 at 21.06.54_2eb42db4.jpg');
+    background-size: cover;
+    background-position: center 20%; /* 20% dari atas */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 31, 63, 0.9) 0%,
+        rgba(0, 31, 63, 0.7) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 .highlight {
+    color: #ffd700;
+    display: block;
+    margin-top: 10px;
+}
+
+.company-name {
+    color: #ffd700;
+    display: block;
+    margin-top: 10px;
+}
+
+/* ============================================
+   CONTACT CONTENT SECTION - OPTIMIZED
+   ============================================ */
+.contact-content {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* ============================================
+   CONTACT INFO SECTION
+   ============================================ */
+.contact-info-section {
+    height: 100%;
+}
+
+.contact-info-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(30, 58, 95, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.contact-info-box:hover {
+    box-shadow: 0 15px 50px rgba(30, 58, 95, 0.15);
+    transform: translateY(-5px);
+}
+
+.section-title {
+    color: #1e3a5f;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #1e3a5f;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: #ffc107;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+/* ============================================
+   INFO ITEMS - DEFAULT (VERTICAL LAYOUT)
+   ============================================ */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: #ffffff;
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(30, 58, 95, 0.1);
+}
+
+/* ============================================
+   INFO ITEMS - HORIZONTAL LAYOUT (UNTUK WHATSAPP)
+   ============================================ */
+.info-item-horizontal {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 20px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.info-item-horizontal:hover {
+    background: #ffffff;
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(30, 58, 95, 0.1);
+}
+
+.info-item-horizontal .icon-wrapper {
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+.info-item-horizontal .info-text {
+    display: flex;
+    align-items: center;
+}
+
+/* ============================================
+   ICON WRAPPER
+   ============================================ */
+.icon-wrapper {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+    color: white;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Icon WhatsApp - Warna Hijau Khas WhatsApp */
+.icon-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.info-item:hover .icon-wrapper,
+.info-item-horizontal:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.info-item:hover .icon-whatsapp,
+.info-item-horizontal:hover .icon-whatsapp {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ============================================
+   INFO TEXT
+   ============================================ */
+.info-text {
+    flex: 1;
+}
+
+.info-text p {
+    margin: 0;
+    color: #333;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.contact-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-link:hover {
+    color: #25D366;
+    transform: translateX(5px);
+}
+
+/* ============================================
+   MAP SECTION - COMPACT & BALANCED
+   ============================================ */
+.map-section {
+    height: 100%;
+}
+
+.map-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(30, 58, 95, 0.1);
+    height: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-box:hover {
+    box-shadow: 0 15px 50px rgba(30, 58, 95, 0.15);
+    transform: translateY(-5px);
+}
+
+.map-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 500px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+    flex: 1;
+}
+
+.google-map {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(44, 82, 130, 0.95) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.map-container:hover .map-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+}
+
+.overlay-content svg {
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+.overlay-content span {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   STORE DESCRIPTION - COMPACT VERSION
+   ============================================ */
+.store-description {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #1e3a5f;
+    margin-top: 0;
+}
+
+.store-description h4 {
+    color: #1e3a5f;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.store-description h4::before {
+    content: '🏢';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.store-description p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.store-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .contact-wrapper {
+        gap: 25px;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .hero-kontak {
+        height: 450px;
+    }
+    
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .map-container {
+        height: 450px;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .hero-kontak {
+        height: 400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+    
+    .contact-content {
+        padding: 50px 0;
+    }
+    
+    .contact-info-box,
+    .map-box {
+        padding: 25px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .info-item,
+    .info-item-horizontal {
+        padding: 15px;
+    }
+    
+    .icon-wrapper {
+        min-width: 45px;
+        height: 45px;
+    }
+    
+    .info-text p,
+    .contact-link {
+        font-size: 0.95rem;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+    
+    .store-description {
+        padding: 20px;
+    }
+    
+    .store-description h4 {
+        font-size: 1.2rem;
+    }
+    
+    .store-description p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero-kontak {
+        height: 350px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    
+    .contact-info-box,
+    .map-box {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    /* WhatsApp tetap horizontal di mobile */
+    .info-item-horizontal {
+        flex-direction: row;
+        text-align: left;
+        padding: 15px;
+    }
+    
+    .info-item-horizontal .icon-wrapper {
+        min-width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    
+    .info-item-horizontal .icon-wrapper svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .info-item-horizontal .contact-link {
+        font-size: 0.95rem;
+    }
+    
+    .icon-wrapper {
+        margin: 0 auto 15px;
+    }
+    
+    .map-container {
+        height: 350px;
+        margin-bottom: 20px;
+    }
+    
+    .overlay-content span {
+        font-size: 1rem;
+    }
+    
+    .store-description {
+        padding: 18px;
+    }
+    
+    .store-description h4 {
+        font-size: 1.1rem;
+    }
+    
+    .store-description p {
+        font-size: 0.85rem;
+        text-align: left;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .hero-kontak {
+        height: 300px;
+    }
+    
+    .hero-content h1 {
+        font-size: 24px;
+    }
+    
+    .contact-content {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .info-text p {
+        font-size: 0.9rem;
+    }
+    
+    /* WhatsApp tetap horizontal bahkan di layar sangat kecil */
+    .info-item-horizontal {
+        padding: 12px 15px;
+    }
+    
+    .info-item-horizontal .icon-wrapper {
+        min-width: 38px;
+        height: 38px;
+        margin-right: 10px;
+    }
+    
+    .info-item-horizontal .contact-link {
+        font-size: 0.9rem;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    .store-description h4 {
+        font-size: 1rem;
+    }
+    
+    .store-description p {
+        font-size: 0.8rem;
+    }
+}

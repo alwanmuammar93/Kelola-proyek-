@@ -1,0 +1,299 @@
+/* ==================== HERO SECTION ==================== */
+.tentang-hero {
+    position: relative;
+    min-height: 55vh;
+    height: auto;
+    background: #0d2946;
+    padding: 60px 80px 110px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;   /* Fokus kanan tengah */
+    z-index: 0;
+}
+
+/* Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right,
+        rgba(13, 41, 70, 0.95) 0%, 
+        rgba(13, 41, 70, 0.85) 30%, 
+        rgba(13, 41, 70, 0.4) 55%,
+        rgba(13, 41, 70, 0.1) 100%);
+    z-index: 1;
+}
+
+/* Content Left */
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.hero-company-name {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tagline {
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+}
+
+.hero-tagline .yellow {
+    color: #ffcb00;
+    display: block;
+    margin-top: 3px;
+    text-transform: none;
+    font-style: italic;
+}
+
+/* ==================== TENTANG KAMI CONTENT ==================== */
+.tentang-content {
+    background: #dfe8f2;
+    padding: 50px 80px;
+}
+
+.tentang-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* GRID */
+.tentang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.tentang-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tentang-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.tentang-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0d2946;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.tentang-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ffcb00;
+    border-radius: 2px;
+}
+
+.tentang-card-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    text-align: center;
+}
+
+.tentang-card-white { 
+    background: white; 
+}
+
+/* ==================== CARD KUNING - MENGAPA MEMILIH KAMI ==================== */
+.tentang-card-purple {
+    background: #ffcb00 !important; /* Background KUNING */
+}
+
+.tentang-card-purple .tentang-card-title {
+    color: #0d2946 !important; /* Judul NAVY GELAP (kontras dengan kuning) */
+}
+
+.tentang-card-purple .tentang-card-title::after {
+    background: #0d2946 !important; /* Garis NAVY GELAP */
+}
+
+.tentang-card-purple .tentang-card-text {
+    color: #0d2946 !important; /* Text NAVY GELAP */
+}
+
+/* ==================== FULL WIDTH CARD - TUJUAN KAMI ==================== */
+.tentang-card-full {
+    background: #0d2946;
+    color: white;
+}
+
+.tentang-card-full .tentang-card-title { 
+    color: white; 
+}
+
+.tentang-card-full .tentang-card-title::after { 
+    background: #ffcb00; 
+}
+
+.tentang-card-full .tentang-card-text { 
+    color: rgba(255, 255, 255, 0.95); 
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+    .tentang-hero { padding: 50px 50px 140px; }
+    .hero-logo { width: 60px; height: 60px; }
+    .hero-brand { gap: 18px; }
+    .tentang-content { padding-left: 50px; padding-right: 50px; }
+    .tentang-card { padding: 35px; }
+}
+
+@media (max-width: 1024px) {
+    .tentang-hero { padding: 40px 30px 100px; min-height: 55vh; }
+    .hero-logo { width: 55px; height: 55px; }
+    .hero-brand { gap: 15px; }
+    .tentang-content { padding: 35px 30px; }
+    .tentang-grid { gap: 25px; }
+    .tentang-card { padding: 30px; }
+    .tentang-card-title { font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+    .tentang-hero {
+        min-height: 60vh;
+        padding: 35px 20px 120px;
+        justify-content: center;
+    }
+
+    .hero-content { 
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-brand {
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .hero-logo { width: 50px; height: 50px; }
+
+    .hero-image { opacity: 0.4; }
+
+    .hero-overlay {
+        background: linear-gradient(to right, 
+            rgba(13, 41, 70, 0.9) 0%, 
+            rgba(13, 41, 70, 0.7) 100%);
+    }
+
+    .tentang-content { padding: 40px 20px; }
+
+    .tentang-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+
+    .tentang-card { padding: 25px; }
+
+    .tentang-card-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .tentang-card-title::after { 
+        width: 50px; 
+        height: 2px; 
+    }
+
+    .tentang-card-text { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .tentang-hero { 
+        min-height: 45vh; 
+        padding: 30px 15px 80px; 
+    }
+    
+    .hero-logo { 
+        width: 45px; 
+        height: 45px; 
+    }
+    
+    .hero-brand { gap: 10px; }
+
+    .tentang-content { padding: 25px 15px; }
+    
+    .tentang-card { padding: 20px; }
+
+    .tentang-card-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .tentang-card-title::after { width: 40px; }
+
+    .tentang-card-text {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+}

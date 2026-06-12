@@ -39,6 +39,7 @@ class Rab extends Model
 
     /**
      * Booting: Hitung total otomatis sebelum simpan
+     * 🔥 DIPERBAIKI: Sekarang menghitung subtotal (jumlah × biaya_material) per item
      */
     protected static function boot()
     {
@@ -60,32 +61,40 @@ class Rab extends Model
                 $rincian = [];
             }
 
-            // --- Hitung total biaya material ---
-            $totalBiaya = 0;
-            foreach ($rincian as $item) {
-
-                if (is_array($item)) {
-                    $nilai = $item['biaya_material'] ?? 0;
-                    if (!is_numeric($nilai)) $nilai = 0;
-                } else {
-                    $nilai = is_numeric($item) ? $item : 0;
-                }
-
-                $totalBiaya += floatval($nilai);
-            }
-
-            // --- Hitung total jumlah ---
+            // --- 🔥 PERBAIKAN: Hitung total RAB dengan subtotal (jumlah × biaya_material) ---
+            $totalRAB = 0;
             $totalJumlah = 0;
-            foreach ($rincian as $item) {
-                if (is_array($item) && isset($item['jumlah']) && is_numeric($item['jumlah'])) {
-                    $totalJumlah += intval($item['jumlah']);
+
+            foreach ($rincian as &$item) {
+                if (is_array($item)) {
+                    // Ambil jumlah dan biaya_material
+                    $jumlah = isset($item['jumlah']) && is_numeric($item['jumlah']) 
+                        ? floatval($item['jumlah']) 
+                        : 0;
+
+                    $biayaMaterial = isset($item['biaya_material']) && is_numeric($item['biaya_material']) 
+                        ? floatval($item['biaya_material']) 
+                        : 0;
+
+                    // 🔥 HITUNG SUBTOTAL: jumlah × biaya_material
+                    $subtotal = $jumlah * $biayaMaterial;
+
+                    // Simpan subtotal ke dalam item (untuk referensi di view)
+                    $item['subtotal'] = $subtotal;
+
+                    // Tambahkan ke total RAB
+                    $totalRAB += $subtotal;
+
+                    // Tambahkan ke total jumlah
+                    $totalJumlah += intval($jumlah);
                 }
             }
+            unset($item); // Hapus referensi
 
             // Simpan kembali
             $rab->rincian_pekerjaan = $rincian;
             $rab->jumlah = $totalJumlah;
-            $rab->total = $totalBiaya;
+            $rab->total = $totalRAB; // 🔥 Sekarang total adalah SUM dari semua subtotal
         });
     }
 

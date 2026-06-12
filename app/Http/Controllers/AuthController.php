@@ -3,82 +3,96 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    // Menampilkan form login
+    /**
+     * Menampilkan form login
+     */
     public function loginForm()
     {
-        return view('login');
-    }
-
-    // Proses login
-    public function login(Request $request)
-    {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        // Ambil user dari database berdasarkan username
-        $user = DB::table('users')->where('username', $request->username)->first();
-
-        if ($user) {
-
-            $passwordInput = $request->password;
-            $passwordDB = $user->password;
-
-            $isValid = false;
-
-            // ✔ CEK 1 — Jika password DB adalah bcrypt
-            if (Hash::needsRehash($passwordDB) === false) {
-                try {
-                    $isValid = Hash::check($passwordInput, $passwordDB);
-                } catch (\Exception $e) {
-                    // Jika DB bukan hash, maka lanjut cek plain text
-                    $isValid = false;
-                }
-            }
-
-            // ✔ CEK 2 — Jika password DB TIDAK pakai hash → cek biasa
-            if (!$isValid && $passwordInput === $passwordDB) {
-                $isValid = true;
-            }
-
-            // Jika cocok (hash atau plain)
-            if ($isValid) {
-
-                // Simpan ke session
-                Session::put('user', [
-                    'id_user' => $user->id_user,
-                    'username' => $user->username,
-                    'role'     => $user->role,
-                ]);
-
-                // Tambahan session login
-                Session::put('is_login', true);
-
-                // Redirect sesuai role
-                if ($user->role === 'admin') {
-                    return redirect()->route('admin.index');
-                } elseif ($user->role === 'kasir') {
-                    return redirect()->route('kasir.index');
-                }
+        // Jika sudah login, redirect sesuai role
+        if (Auth::check()) {
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.index');
+            } elseif (Auth::user()->role === 'kasir') {
+                return redirect()->route('kasir.index');
             }
         }
 
-        return back()->withErrors(['login' => 'Username atau password salah.']);
+        return view('login');
     }
 
-    // Logout
-    public function logout()
+    /**
+     * Proses login menggunakan Laravel Auth
+     */
+    public function login(Request $request)
     {
-        Session::forget('user');
-        Session::forget('is_login');
+        // Validasi input
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ], [
+            'username.required' => 'Username wajib diisi.',
+            'password.required' => 'Password wajib diisi.',
+        ]);
 
-        return redirect()->route('login');
+        // Credentials untuk login
+        $credentials = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        // Attempt login menggunakan Laravel Auth
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
+            // Regenerate session untuk keamanan
+            $request->session()->regenerate();
+
+            // Ambil user yang login
+            $user = Auth::user();
+
+            // Redirect berdasarkan role
+            if ($user->role === 'admin') {
+                return redirect()->intended(route('admin.index'))
+                    ->with('success', 'Selamat datang, Admin ' . $user->username . '!');
+            } elseif ($user->role === 'kasir') {
+                return redirect()->intended(route('kasir.index'))
+                    ->with('success', 'Selamat datang, ' . $user->username . '!');
+            }
+
+            // Fallback jika role tidak dikenali
+            return redirect()->intended(route('admin.index'));
+        }
+
+        // Login gagal
+        return back()
+            ->withErrors([
+                'username' => 'Username atau password salah.',
+            ])
+            ->withInput($request->only('username'));
+    }
+
+    /**
+     * Logout menggunakan Laravel Auth
+     */
+    public function logout(Request $request)
+    {
+        // Ambil nama user sebelum logout (untuk pesan)
+        $username = Auth::user()->username ?? 'User';
+
+        // Logout dari Laravel Auth
+        Auth::logout();
+
+        // Invalidate session
+        $request->session()->invalidate();
+
+        // Regenerate CSRF token
+        $request->session()->regenerateToken();
+
+        // Redirect ke login dengan pesan
+        return redirect()->route('login')
+            ->with('success', 'Anda telah berhasil logout. Sampai jumpa, ' . $username . '!');
     }
 }

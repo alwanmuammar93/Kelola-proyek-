@@ -1,0 +1,408 @@
+/* ========================================
+   KWITANSI EDIT MAIN LAYOUT
+   ======================================== */
+
+.kwitansi-main {
+    margin-left: 0;
+    padding: 2rem;
+    padding-top: 66px;
+    min-height: calc(100vh - 66px);
+    background-color: #f8f9fa;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme Main */
+body.dark-theme .kwitansi-main {
+    background-color: #0f172a;
+}
+
+/* ========================================
+   FORM CONTAINER
+   ======================================== */
+
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 1200px;
+    margin: 20px auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Form Container */
+body.dark-theme .form-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme Title - PUTIH */
+body.dark-theme .form-title {
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(96, 165, 250, 0.4);
+}
+
+/* ========================================
+   FORM INPUTS & LABELS
+   ======================================== */
+
+.custom-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Label */
+body.dark-theme .custom-label {
+    color: #cbd5e0;
+}
+
+.custom-input,
+.custom-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #212529;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+    outline: none;
+    border-color: #1a1f71;
+    box-shadow: 0 0 0 3px rgba(26, 31, 113, 0.1);
+}
+
+/* Dark Theme Inputs */
+body.dark-theme .custom-input,
+body.dark-theme .custom-select {
+    background: #0f172a;
+    border: 2px solid #ffffff;
+    color: #e2e8f0;
+}
+
+body.dark-theme .custom-input:focus,
+body.dark-theme .custom-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-theme .custom-input::placeholder {
+    color: #64748b;
+}
+
+body.dark-theme .custom-select option {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.custom-input:read-only,
+.custom-input:disabled,
+.custom-select:disabled {
+    background: #f8f9fa;
+}
+
+/* Dark Theme Read-only/Disabled */
+body.dark-theme .custom-input:read-only,
+body.dark-theme .custom-input:disabled,
+body.dark-theme .custom-select:disabled {
+    background: #1e293b;
+    color: #94a3b8;
+    border-color: #475569;
+}
+
+/* ========================================
+   FORM BUTTONS
+   ======================================== */
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.btn-batal,
+.btn-simpan {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-batal {
+    background: #6c757d;
+    color: white;
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+.btn-batal:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+/* Dark Theme Batal Button */
+body.dark-theme .btn-batal {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 2px 8px rgba(74, 85, 104, 0.3);
+}
+
+body.dark-theme .btn-batal:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.5);
+}
+
+.btn-simpan {
+    background: linear-gradient(135deg, #1a1f71 0%, #2d3f8f 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(26, 31, 113, 0.2);
+}
+
+.btn-simpan:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 31, 113, 0.4);
+}
+
+/* Dark Theme Simpan Button */
+body.dark-theme .btn-simpan {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-theme .btn-simpan:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+}
+
+.btn-simpan:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========================================
+   SEARCH INPUT GROUP
+   ======================================== */
+
+.input-group-custom {
+    display: flex;
+    gap: 0;
+}
+
+.input-group-custom .custom-input {
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+
+.input-group-custom .btn-search {
+    background: #1a1f71;
+    color: white;
+    border: 1px solid #1a1f71;
+    border-radius: 0 10px 10px 0;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.input-group-custom .btn-search:hover {
+    background: #13154f;
+}
+
+/* Dark Theme Search Button */
+body.dark-theme .input-group-custom .btn-search {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-color: #3b82f6;
+}
+
+body.dark-theme .input-group-custom .btn-search:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+/* ========================================
+   STATUS DISPLAY
+   ======================================== */
+
+.status-display {
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.status-display.dp-50 {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    color: #856404;
+}
+
+.status-display.belum-lunas {
+    background: #ffe5d0;
+    border: 2px solid #fd7e14;
+    color: #8b4513;
+}
+
+.status-display.lunas {
+    background: #cfe2ff;
+    border: 2px solid #0d6efd;
+    color: #084298;
+}
+
+/* Dark Theme Status Display */
+body.dark-theme .status-display.dp-50 {
+    background: #854d0e;
+    border-color: #fbbf24;
+    color: #fef3c7;
+}
+
+body.dark-theme .status-display.belum-lunas {
+    background: #c2410c;
+    border-color: #fb923c;
+    color: #fed7aa;
+}
+
+body.dark-theme .status-display.lunas {
+    background: #1e40af;
+    border-color: #3b82f6;
+    color: #dbeafe;
+}
+
+/* ========================================
+   PAYMENT ROW STYLING
+   ======================================== */
+
+.payment-row {
+    transition: border-left 0.3s ease;
+    padding-left: 15px;
+    border-left: 4px solid #6c757d;
+}
+
+#Total_Pembayaran {
+    transition: border-left 0.3s ease;
+}
+
+/* ========================================
+   SMALL HINTS
+   ======================================== */
+
+.small-hint {
+    font-size: 10px;
+    color: #6c757d;
+    margin-top: 4px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme Hint */
+body.dark-theme .small-hint {
+    color: #94a3b8;
+}
+
+/* ========================================
+   STATUS INFO BOX
+   ======================================== */
+
+.status-info-box {
+    background: #f8f9fa;
+    border-left: 4px solid #1a1f71;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.status-info-box .percentage {
+    font-weight: 700;
+    color: #1a1f71;
+}
+
+/* Dark Theme Status Info Box */
+body.dark-theme .status-info-box {
+    background: #1e293b;
+    border-left-color: #3b82f6;
+    color: #e2e8f0;
+}
+
+body.dark-theme .status-info-box .percentage {
+    color: #60a5fa;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .kwitansi-main {
+        padding: 1rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-batal,
+    .btn-simpan {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   SMOOTH TRANSITIONS
+   ======================================== */
+
+.kwitansi-main,
+.form-container,
+.form-title,
+.custom-label,
+.custom-input,
+.custom-select,
+.btn-batal,
+.btn-simpan,
+.status-display,
+.small-hint,
+.status-info-box {
+    transition: all 0.3s ease;
+}
